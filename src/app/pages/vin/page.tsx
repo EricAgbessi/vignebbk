@@ -45,7 +45,7 @@ export default function Vin() {
                 <div className=" w-[25%] visible max-sm:hidden max-md:hidden lg:visible">
                     <Filter />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
                     {wineData?.map((wine: any, index) => (
                         <div key={index} onClick={() => {
                             goToZoomin(wine?.id)

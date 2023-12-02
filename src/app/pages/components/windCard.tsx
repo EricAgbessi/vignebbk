@@ -21,12 +21,14 @@ const WineCard = (props: any) => {
         router?.push(Pages.zoomin)
     }
     return (
-
-        <div className="md:flex flex-col">
-            <div className="mt-2">
-                <img className=" w-full object-cover h-44 " src="https://cavesdomaines.be/wp-content/uploads/2021/07/Pierre-Amadieu-Vacqueyras.jpg" alt="Modern building architecture" />
-                <div className="uppercase tracking-wide text-md text-black  font-semibold text-center">{props?.wine?.elements}</div>
-
+        <div className="max-w-sm bg-white rounded-lg shadow">
+            <a href="#">
+                <img className="rounded-t-lg" src="https://cavesdomaines.be/wp-content/uploads/2021/07/Pierre-Amadieu-Vacqueyras.jpg" alt="" />
+            </a>
+            <div className="p-5">
+                <a href="#">
+                    <h5 className="mb-2 text-md  sm:text-md md:text-md lg:text-xl  font-bold tracking-tight ">{props?.wine?.elements}</h5>
+                </a>
                 <div className="flex flex-row">
                     <div>
                         <div className='m-2'><Rate style={{ color: "#ba1628" }} disabled allowHalf defaultValue={parseFloat(props?.wine?.cote)} /></div>
@@ -50,8 +52,6 @@ const WineCard = (props: any) => {
                     </div>
                 </div>
             </div>
-
-
         </div>
 
     )
