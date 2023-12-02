@@ -11,6 +11,7 @@ import { IoIosWater, IoIosColorPalette } from 'react-icons/io';
 import { CiSearch, CiLocationOn } from 'react-icons/ci'
 import { GiGrapes } from 'react-icons/gi'
 import FooterCustom from "@/app/compotents/Footer";
+import { FrontendUrl, Pages } from "@/config/constant";
 
 export default function Vin() {
     const router = useRouter()
@@ -27,6 +28,7 @@ export default function Vin() {
         classification: string;
         annees: string;
         cote: string;
+        id: string;
     }
     const [wineData, setWineData] = useState<Wine>()
 
@@ -155,7 +157,7 @@ export default function Vin() {
 
                     <QRCode
                         errorLevel="H"
-                        value="https://ant.design/"
+                        value={`${FrontendUrl}/Pages?.zoomin?id=${wineData?.id}`}
                         icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                     />
                 </div>
