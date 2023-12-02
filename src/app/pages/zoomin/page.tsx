@@ -157,7 +157,7 @@ export default function Vin() {
 
                     <QRCode
                         errorLevel="H"
-                        value={`${FrontendUrl}/Pages?.zoomin?id=${wineData?.id}`}
+                        value={`${FrontendUrl}${Pages.zoomin}?id=${wineData?.id}`}
                         icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                     />
                 </div>
