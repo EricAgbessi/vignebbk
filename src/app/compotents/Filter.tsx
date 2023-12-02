@@ -31,8 +31,8 @@ const Filter = () => {
 
     return (
         <div className=" overflow-x-scroll">
-            {filterData?.map((d: any) => {
-                return <div className="mb-4 mr-4">
+            {filterData?.map((d: any, key: any) => {
+                return <div className="mb-4 mr-4" key={key}>
                     <p className=" font-bold text-lg">{d?.name}</p>
                     {d.values.map((value: any) => {
                         if (d.type === 'button') return <Button danger className="m-2 rounded-full" style={{ fontSize: "12px" }} >{value?.name}</Button>

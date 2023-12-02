@@ -47,7 +47,7 @@ export default function Vin() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
                     {wineData?.map((wine: any, index) => (
-                        <div onClick={() => {
+                        <div key={index} onClick={() => {
                             goToZoomin(wine?.id)
                         }} className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-2" >
                             <WineCard key={index} wine={wine} />
