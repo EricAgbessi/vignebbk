@@ -21,7 +21,7 @@ const WineCard = (props: any) => {
         router?.push(Pages.zoomin)
     }
     return (
-        <div className="max-w-sm bg-white rounded-lg shadow">
+        <div className="max-w-sm bg-white rounded-lg ">
             <a href="#">
                 <img className="rounded-t-lg" src="https://cavesdomaines.be/wp-content/uploads/2021/07/Pierre-Amadieu-Vacqueyras.jpg" alt="" />
             </a>

@@ -1,7 +1,6 @@
 "use client"
 
 import Image from 'next/image'
-import '../../i18n'
 import { useTranslation } from 'react-i18next';
 import { Button, Flex, Row } from 'antd';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
