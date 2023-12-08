@@ -53,9 +53,9 @@ export default function Vin() {
     const style: React.CSSProperties = { background: '#0092ff', padding: '8px 0' };
 
     return <div>
-        <Row className='lg:mr-[10%] lg:ml-[10%] mb-4 mt-5'>
+        <Row className='lg:mr-[10%] lg:ml-[10%] mb-4 mt-20 '>
             <CustomHeader />
-            <div className="flex flex-row w-full  mr-4" >
+            <div className="flex flex-row w-full mr-4" >
                 <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtres</Button>
             </div>
             <div className="flex flex-row mt-4 ">

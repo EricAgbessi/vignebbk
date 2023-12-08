@@ -79,7 +79,7 @@ export default function Vin() {
         setOpen(false);
     };
     return <div>
-        <Row className=' lg:ml-[10%] lg:mr-[10%]  mb-4 mt-4'>
+        <Row className=' lg:ml-[10%] lg:mr-[10%]  mb-4 mt-20'>
             <CustomHeader />
             <div className="flex flex-row justify-around w-full block lg:hidden mr-4" >
                 <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtres</Button>
