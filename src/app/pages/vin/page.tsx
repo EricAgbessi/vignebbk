@@ -20,7 +20,6 @@ export default function Vin() {
         const urlSearchParams = new URLSearchParams(window.location.search);
         const queryParamsExist = urlSearchParams.size;
         let filter;
-        console.log("KKKKKK", urlSearchParams.get('cepages'));
         let tableFiltre: string[] = []
 
 
@@ -113,7 +112,7 @@ export default function Vin() {
 
 
             <Drawer
-                title={<h3 className="mr-4 font-bold" style={{ color: "#ba1628", fontSize: "25px" }}>Filtre</h3>}
+                title={<h3 className="mr-4 font-bold" style={{ color: "#ba1628", fontSize: "25px" }}>Filtres</h3>}
                 placement={placement}
                 width={350}
                 onClose={onClose}
