@@ -144,6 +144,7 @@ const CustomHeader: React.FC = () => {
             <div style={{ width: "100%" }} className='mb-2'>
 
                 <Drawer
+                    className="fixed"
                     title={<h3 className="mr-4 font-bold" style={{ color: "#ba1628", fontSize: "25px" }}>
                         <img src={`${ApiUrl}/logo.png`} width="80px" />
                     </h3>}

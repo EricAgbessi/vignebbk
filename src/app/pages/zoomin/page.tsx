@@ -217,6 +217,7 @@ export default function Vin() {
 
 
             <Drawer
+                className="fixed"
                 title={<h3 className="mr-4 font-bold" style={{ color: "#ba1628", fontSize: "25px" }}>Filtres</h3>}
                 placement={placement}
                 width={350}
