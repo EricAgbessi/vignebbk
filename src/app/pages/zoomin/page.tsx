@@ -12,6 +12,7 @@ import { CiSearch, CiLocationOn } from 'react-icons/ci'
 import { GiGrapes } from 'react-icons/gi'
 import FooterCustom from "@/app/compotents/Footer";
 import { ApiUrl, FrontendUrl, Pages } from "@/config/constant";
+import { ArrowLeftOutlined } from '@ant-design/icons';
 
 export default function Vin() {
     const router = useRouter()
@@ -82,6 +83,7 @@ export default function Vin() {
         <Row className=' lg:ml-[10%] lg:mr-[10%]  mb-4 mt-20'>
             <CustomHeader />
             <div className="flex flex-row justify-around w-full block lg:hidden mr-4" >
+                <a href={`${FrontendUrl}/pages/vin`}><Button icon={<ArrowLeftOutlined />} className="m-2 rounded-full" /></a>
                 <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtres</Button>
                 <Button danger className="m-2 rounded-full" >Trier</Button>
             </div>
