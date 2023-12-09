@@ -92,8 +92,8 @@ export default function Vin() {
                 <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtres</Button>
                 {isFiltre === true ?
                     <>
-                        {listFiltre?.map((filtre) => {
-                            return <Button type="primary" danger className="m-2 rounded-full" >{filtre}</Button>
+                        {listFiltre?.map((filtre, index) => {
+                            return <Button key={index} type="primary" danger className="m-2 rounded-full" >{filtre}</Button>
                         })}
                     </>
 
