@@ -6,21 +6,50 @@ import Filter from "../../compotents/Filter";
 import { useEffect, useState } from "react";
 import { GETWINE } from "@/utils/axios";
 import { useRouter } from 'next/navigation';
-import { Pages } from "@/config/constant";
+import { FrontendUrl, Pages } from "@/config/constant";
 import FooterCustom from "@/app/compotents/Footer";
-
+import { ArrowLeftOutlined } from '@ant-design/icons';
 
 export default function Vin() {
     const router = useRouter()
-
-
-
     const [wineData, setWineData] = useState([])
+    const [isFiltre, setIsFiltre] = useState(false)
+    const [listFiltre, setListFiltre] = useState<string[]>([])
+
     useEffect(() => {
         const urlSearchParams = new URLSearchParams(window.location.search);
         const queryParamsExist = urlSearchParams.size;
         let filter;
+        console.log("KKKKKK", urlSearchParams.get('cepages'));
+        let tableFiltre: string[] = []
+
+
         if (queryParamsExist) {
+            if (urlSearchParams.get('cepages') !== null) {
+                tableFiltre.push("Cépages")
+            }
+            if (urlSearchParams.get('Region_domaine') !== null) {
+                tableFiltre.push("Régions")
+            }
+            if (urlSearchParams.get('teneur_en_alcool') !== null) {
+                tableFiltre.push("Teneur en alcool")
+            }
+            if (urlSearchParams.get('allergenes') !== null) {
+                tableFiltre.push("Allergènes")
+            }
+            if (urlSearchParams.get('classification') !== null) {
+                tableFiltre.push("Classification")
+            }
+            if (urlSearchParams.get('annees') !== null) {
+                tableFiltre.push("Année")
+            }
+            if (urlSearchParams.get('Style_de_Vin') !== null) {
+                tableFiltre.push("Style de Vin")
+            }
+            //
+            setListFiltre(tableFiltre)
+
+            setIsFiltre(true)
             filter = {
                 cepages: urlSearchParams.get('cepages'),
                 Region_domaine: urlSearchParams.get('Region_domaine'),
@@ -55,8 +84,20 @@ export default function Vin() {
     return <div>
         <Row className='lg:mr-[10%] lg:ml-[10%] mb-4 mt-20 '>
             <CustomHeader />
+
             <div className="flex flex-row w-full mr-4" >
+                {isFiltre === true ?
+                    <a href={`${FrontendUrl}/pages/vin`}><Button icon={<ArrowLeftOutlined />} className="m-2 rounded-full" /></a>
+                    : ""}
                 <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtres</Button>
+                {isFiltre === true ?
+                    <>
+                        {listFiltre?.map((filtre) => {
+                            return <Button type="primary" danger className="m-2 rounded-full" >{filtre}</Button>
+                        })}
+                    </>
+
+                    : ""}
             </div>
             <div className="flex flex-row mt-4 ">
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
