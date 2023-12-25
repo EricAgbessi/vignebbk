@@ -54,6 +54,12 @@ export const GETALIMENTZOOMIN = (id: any) => {
     });
 };
 
+export const GETIMAGESZOOMIN = (id: any) => {
+    return axiosInstance.get(`/get_zoomin_images.php?id=${id}`).catch(() => {
+        return;
+    });
+};
+
 
 
 export const GETWINE__ = async () => {

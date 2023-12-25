@@ -4,7 +4,7 @@ import CustomHeader from "../../compotents/Header";
 import WineCard from "../components/windCard";
 import Filter from "../../compotents/Filter";
 import { useEffect, useState } from "react";
-import { GETALIMENTZOOMIN, GETCEPAGESZOOMIN, GETWINE, GETWINEZOOMIN } from "@/utils/axios";
+import { GETALIMENTZOOMIN, GETCEPAGESZOOMIN, GETIMAGESZOOMIN, GETWINE, GETWINEZOOMIN } from "@/utils/axios";
 import { useParams } from "next/navigation";
 import { useRouter } from 'next/navigation';
 import { IoIosWater, IoIosColorPalette } from 'react-icons/io';
@@ -13,6 +13,9 @@ import { GiGrapes } from 'react-icons/gi'
 import FooterCustom from "@/app/compotents/Footer";
 import { ApiUrl, FrontendUrl, Pages } from "@/config/constant";
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+
 
 export default function Vin() {
     const router = useRouter()
@@ -30,17 +33,25 @@ export default function Vin() {
         annees: string;
         cote: string;
         id: string;
+        url: string;
     }
 
     interface Cepage {
-        designation: string,
-        id_vin: string,
+        designation: string;
+        id_vin: string;
         id: string
+    }
+
+    interface Images {
+        id: Number,
+        url: string,
+        id_vin: Number,
+        main: Number
     }
     const [wineData, setWineData] = useState<Wine>()
     const [cepageData, setCepageData] = useState([]);
     const [alimentData, setAlimentData] = useState([]);
-
+    const [imagesData, setImagesData] = useState<Images[]>([]);
 
 
     useEffect(() => {
@@ -68,6 +79,13 @@ export default function Vin() {
                 setAlimentData(res?.data)
                 console.log(res?.data)
             })
+
+            GETIMAGESZOOMIN(id).then((res) => {
+                const data = res?.data
+                const sortedData = [...data].sort((a, b) => (a.main === "1" ? -1 : 1));
+                setImagesData(sortedData)
+                console.log(sortedData)
+            })
         } else {
         }
 
@@ -79,6 +97,19 @@ export default function Vin() {
     const onClose = () => {
         setOpen(false);
     };
+
+    const contentStyle: React.CSSProperties = {
+        height: '160px',
+        color: '#fff',
+        lineHeight: '160px',
+        textAlign: 'center',
+        background: '#364d79',
+    };
+
+    const onChange = (currentSlide: number) => {
+        console.log(currentSlide);
+    };
+
     return <div>
         <Row className=' lg:ml-[10%] lg:mr-[10%]  mb-4 mt-20'>
             <CustomHeader />
@@ -87,14 +118,67 @@ export default function Vin() {
                 <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtres</Button>
                 <Button danger className="m-2 rounded-full" >Trier</Button>
             </div>
+
+
+
+
+
+
+
+
+
+
+
             <div className="flex flex-col md:flex-row md:justify-center  mt-4 w-full"  >
                 <div className="w-full md:w-1/2 lg:w-4/5 bg-white rounded-xl  overflow-hidden">
-                    <div className="md:flex w-full " style={{ width: "100%" }}>
-                        <Badge.Ribbon text={wineData?.Style_de_Vin} color="red" >
-                            <img style={{ height: "500px" }} className="h-48 md:h-96 w-[100%] object-cover  md:w-[40%]" src="https://cavesdomaines.be/wp-content/uploads/2021/07/Pierre-Amadieu-Vacqueyras.jpg" alt="Modern building architecture" />
-                        </Badge.Ribbon>
+                    <div className="md:flex w-full flex-row justify-between " style={{ width: "100%" }}>
+                        <div className="md:w-[30%]" >
+                            <Badge.Ribbon text={wineData?.Style_de_Vin} color="red" >
+                                <Carousel>
+                                    {
+                                        imagesData?.map((images: Images, keys) => {
+                                            let i = 1;
+                                            return <div>
+                                                <div
+                                                    style={{
+                                                        height: "500px",
+                                                        width: "100%",
+                                                        position: "relative", // Ajout de la position relative pour positionner l'image
+                                                        overflow: "hidden" // Cacher tout contenu qui dépasse les limites de la div
+                                                    }}
+                                                >
+                                                    <div
+                                                        style={{
+                                                            position: "absolute",
+                                                            top: 0,
+                                                            bottom: 0,
+                                                            left: 0,
+                                                            right: 0,
+                                                            backgroundImage: `url(${images?.url})`,
+                                                            backgroundSize: "contain", // Taille de l'image pour couvrir toute la div
+                                                            backgroundPosition: "center", // Centrer l'image horizontalement et verticalement
+                                                            width: "100%", // Largeur de l'image en tant que 100% de la div parente
+                                                            height: "100%", // Hauteur de l'image en tant que 100% de la div parente
+                                                        }}
+                                                    />
+                                                </div>
+                                                <p className="legend">{wineData?.elements} {keys + 1}</p>
 
-                        <div className="md:w-[70%] px-4">
+                                            </div>
+                                        })
+                                    }
+
+
+                                </Carousel>
+                            </Badge.Ribbon>
+                        </div>
+
+
+
+
+
+
+                        <div className="md:w-[70%] px-4" >
                             <div className="p-2 w-[100%]">
                                 <div >
                                     <div className='flex flex-row m-2 font-bold '>
@@ -185,7 +269,7 @@ export default function Vin() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div >
 
                 <div className="w-full md:w-1/2 lg:w-1/5 p-4">
                     <div className="mb-8" >
@@ -213,7 +297,7 @@ export default function Vin() {
 
 
 
-            </div>
+            </div >
 
 
 

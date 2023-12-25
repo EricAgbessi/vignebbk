@@ -10,6 +10,7 @@ import { FrontendUrl, Pages } from "@/config/constant";
 import FooterCustom from "@/app/compotents/Footer";
 import { ArrowLeftOutlined } from '@ant-design/icons';
 
+
 export default function Vin() {
     const router = useRouter()
     const [wineData, setWineData] = useState([])
@@ -61,7 +62,7 @@ export default function Vin() {
         }
 
         GETWINE(filter).then((res) => {
-            console.log(res);
+            console.log(res?.data);
             setWineData(res?.data)
         })
     }, [])
@@ -83,6 +84,10 @@ export default function Vin() {
     return <div>
         <Row className='lg:mr-[10%] lg:ml-[10%] mb-4 mt-20 '>
             <CustomHeader />
+
+
+
+
 
             <div className="flex flex-row w-full mr-4" >
                 {isFiltre === true ?

@@ -7,6 +7,8 @@ import { CiSearch, CiLocationOn } from 'react-icons/ci'
 import { GiGrapes } from 'react-icons/gi'
 import { useRouter } from 'next/navigation';
 import { Pages } from '@/config/constant';
+import { Carousel } from 'antd';
+
 
 
 const { Title, Text } = Typography;
@@ -17,14 +19,26 @@ const WineCard = (props: any) => {
     const router = useRouter()
 
 
+    const contentStyle: React.CSSProperties = {
+        height: '160px',
+        color: '#fff',
+        lineHeight: '160px',
+        textAlign: 'center',
+        background: '#364d79',
+    };
+
+
+
     const goToZoomin = () => {
         router?.push(Pages.zoomin)
     }
     return (
         <div className="max-w-sm bg-white rounded-lg ">
             <a href="#">
-                <img className="rounded-t-lg" src="https://cavesdomaines.be/wp-content/uploads/2021/07/Pierre-Amadieu-Vacqueyras.jpg" alt="" />
+                <img className="rounded-t-lg" src={`${props?.wine?.url}`} alt="" />
             </a>
+
+
             <div className="p-5">
                 <a href="#">
                     <h5 className="mb-2 text-md  sm:text-md md:text-md lg:text-xl  font-bold tracking-tight ">{props?.wine?.elements}</h5>
