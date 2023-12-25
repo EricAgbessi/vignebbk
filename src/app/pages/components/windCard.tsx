@@ -6,7 +6,7 @@ import { IoIosWater, IoIosColorPalette } from 'react-icons/io';
 import { CiSearch, CiLocationOn } from 'react-icons/ci'
 import { GiGrapes } from 'react-icons/gi'
 import { useRouter } from 'next/navigation';
-import { Pages } from '@/config/constant';
+import { ApiUrl, Pages } from '@/config/constant';
 import { Carousel } from 'antd';
 
 
@@ -34,13 +34,13 @@ const WineCard = (props: any) => {
     }
     return (
         <div className="max-w-sm bg-white rounded-lg ">
-            <a href="#">
-                <img className="rounded-t-lg" src={`${props?.wine?.url}`} alt="" />
+            <a href={`${Pages.zoomin}?id=${props?.wine?.id_important}`}>
+                <img className="rounded-t-lg" src={props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`} alt="" />
             </a>
 
 
             <div className="p-5">
-                <a href="#">
+                <a href={`${Pages.zoomin}?id=${props?.wine?.id_important}`}>
                     <h5 className="mb-2 text-md  sm:text-md md:text-md lg:text-xl  font-bold tracking-tight ">{props?.wine?.elements}</h5>
                 </a>
                 <div className="flex flex-row">

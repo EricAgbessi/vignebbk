@@ -82,10 +82,16 @@ export default function Vin() {
 
             GETIMAGESZOOMIN(id).then((res) => {
                 const data = res?.data
-                const sortedData = [...data].sort((a, b) => (a.main === "1" ? -1 : 1));
-                setImagesData(sortedData)
-                console.log(sortedData)
+                if (res?.data === "") {
+                    setImagesData([])
+                } else {
+                    const sortedData = [...data].sort((a, b) => (a.main === "1" ? -1 : 1));
+                    setImagesData(sortedData)
+                }
+
+                console.log("BLABLABLA: ", res?.data === "")
             })
+
         } else {
         }
 
@@ -134,42 +140,48 @@ export default function Vin() {
                     <div className="md:flex w-full flex-row justify-between " style={{ width: "100%" }}>
                         <div className="md:w-[30%]" >
                             <Badge.Ribbon text={wineData?.Style_de_Vin} color="red" >
-                                <Carousel>
-                                    {
-                                        imagesData?.map((images: Images, keys) => {
-                                            let i = 1;
-                                            return <div key={keys}>
-                                                <div
-                                                    style={{
-                                                        height: "500px",
-                                                        width: "100%",
-                                                        position: "relative", // Ajout de la position relative pour positionner l'image
-                                                        overflow: "hidden" // Cacher tout contenu qui dépasse les limites de la div
-                                                    }}
-                                                >
-                                                    <div
-                                                        style={{
-                                                            position: "absolute",
-                                                            top: 0,
-                                                            bottom: 0,
-                                                            left: 0,
-                                                            right: 0,
-                                                            backgroundImage: `url(${images?.url})`,
-                                                            backgroundSize: "contain", // Taille de l'image pour couvrir toute la div
-                                                            backgroundPosition: "center", // Centrer l'image horizontalement et verticalement
-                                                            width: "100%", // Largeur de l'image en tant que 100% de la div parente
-                                                            height: "100%", // Hauteur de l'image en tant que 100% de la div parente
-                                                        }}
-                                                    />
-                                                </div>
-                                                <p className="legend">{wineData?.elements} {keys + 1}</p>
+                                {
+                                    imagesData.length === 0 ? <img style={{ height: "500px", width: "100%" }} className="h-48 md:h-96 w-[100%] object-cover  md:w-[30%]" src={`${ApiUrl}/placeholder.png`} alt="#" />
+                                        :
+                                        <Carousel>
+                                            {
 
-                                            </div>
-                                        })
-                                    }
+                                                imagesData?.map((images: Images, keys) => {
+                                                    let i = 1;
+                                                    return <div key={keys}>
+                                                        <div
+                                                            style={{
+                                                                height: "500px",
+                                                                width: "100%",
+                                                                position: "relative", // Ajout de la position relative pour positionner l'image
+                                                                overflow: "hidden" // Cacher tout contenu qui dépasse les limites de la div
+                                                            }}
+                                                        >
+                                                            <div
+                                                                style={{
+                                                                    position: "absolute",
+                                                                    top: 0,
+                                                                    bottom: 0,
+                                                                    left: 0,
+                                                                    right: 0,
+                                                                    backgroundImage: `url(${images?.url})`,
+                                                                    backgroundSize: "contain", // Taille de l'image pour couvrir toute la div
+                                                                    backgroundPosition: "center", // Centrer l'image horizontalement et verticalement
+                                                                    width: "100%", // Largeur de l'image en tant que 100% de la div parente
+                                                                    height: "100%", // Hauteur de l'image en tant que 100% de la div parente
+                                                                }}
+                                                            />
+                                                        </div>
+                                                        <p className="legend">{wineData?.elements} {keys + 1}</p>
+
+                                                    </div>
+                                                })
+                                            }
 
 
-                                </Carousel>
+                                        </Carousel>
+                                }
+
                             </Badge.Ribbon>
                         </div>
 
