@@ -10,6 +10,9 @@ import { LiaCheeseSolid } from 'react-icons/lia'
 import { CiSearch, CiLocationOn } from 'react-icons/ci'
 import Link from 'next/link';
 import { ApiUrl, Pages } from '@/config/constant';
+import { IoIosWater } from 'react-icons/io';
+import { LuGlassWater } from "react-icons/lu";
+
 import Image from 'next/image';
 
 const items: MenuProps['items'] = [
@@ -23,7 +26,6 @@ const items: MenuProps['items'] = [
     {
         label: 'Accords mets et vins',
         key: 'accord',
-        disabled: true,
         icon: <LiaCheeseSolid style={{ fontSize: "22px" }} />,
         children: [
             {
@@ -50,9 +52,10 @@ const items: MenuProps['items'] = [
         ],
     },
     {
-        label: 'Cépages',
+        label: <Link href={Pages.goupe}>
+            Cépages
+        </Link>,
         key: 'Cépages',
-        disabled: true,
         icon: <GiGrapes style={{ fontSize: "22px" }} />,
         children: [
             {
@@ -207,6 +210,22 @@ const CustomHeader: React.FC = () => {
                                 </Link>
                             </li>
 
+
+
+
+
+                            <li>
+                                <Link href={Pages.vin} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
+                                    <IoIosWater style={{ fontSize: "22px" }} /><span>Teneur en alcool</span>
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link href={Pages.vin} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
+                                    <LuGlassWater style={{ fontSize: "22px" }} /><span>Type de crue</span>
+                                </Link>
+                            </li>
+
                             <li>
                                 <Link href={Pages.vin} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
                                     <CiLocationOn style={{ fontSize: "22px" }} /><span>Régions</span>
@@ -215,6 +234,13 @@ const CustomHeader: React.FC = () => {
 
                         </ul>
                     </div>
+
+
+
+
+
+
+
 
                     { /* <Input
                         placeholder="Chercher un vin"
@@ -225,6 +251,12 @@ const CustomHeader: React.FC = () => {
                         />*/}
                 </div>
             </nav>
+
+
+
+
+
+
 
 
         </>

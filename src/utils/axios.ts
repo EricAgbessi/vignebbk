@@ -29,6 +29,35 @@ export const GETWINE = (params: any) => {
 
 };
 
+
+
+
+export const GETWINEGROUP = (params: any) => {
+    let url = "";
+    if (params) {
+        switch (params) {
+            case "cepages":
+                url = `/getwinbycepages.php`
+                break;
+
+            default:
+                break;
+        }
+
+        return axiosInstance.get(url).catch(() => {
+            return;
+        });
+    } else {
+        return axiosInstance.get('/index.php').catch(() => {
+            return;
+        });
+    }
+
+};
+
+
+
+
 export const GETFILTRE = () => {
     return axiosInstance.get(`/getfiltre.php`).catch(() => {
         return;
