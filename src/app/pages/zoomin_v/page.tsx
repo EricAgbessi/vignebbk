@@ -4,7 +4,7 @@ import CustomHeader from "../../compotents/Header";
 import WineCard from "../components/windCard";
 import Filter from "../../compotents/Filter";
 import { useEffect, useState } from "react";
-import { GETALIMENTZOOMIN, GETCEPAGESZOOMIN, GETIMAGESZOOMIN, GETWINE, GETWINEZOOMIN } from "@/utils/axios";
+import { GETALIMENTZOOMIN, GETALIMENTZOOMIN_V, GETCEPAGESZOOMIN, GETCEPAGESZOOMIN_V, GETIMAGESZOOMIN, GETIMAGESZOOMIN_V, GETWINE, GETWINEZOOMIN, GETWINEZOOMIN_V } from "@/utils/axios";
 import { useParams } from "next/navigation";
 import { useRouter } from 'next/navigation';
 import { IoIosWater, IoIosColorPalette } from 'react-icons/io';
@@ -64,23 +64,23 @@ export default function Vin() {
         const queryParamsExist = urlSearchParams.size;
         if (queryParamsExist) {
             const id = urlSearchParams.get('id');
-            GETWINEZOOMIN(id).then((res) => {
+            GETWINEZOOMIN_V(id).then((res) => {
                 setWineData(res?.data[0])
                 console.log(res?.data[0])
             })
 
 
-            GETCEPAGESZOOMIN(id).then((res) => {
+            GETCEPAGESZOOMIN_V(id).then((res) => {
                 setCepageData(res?.data)
                 console.log(res?.data)
             })
 
-            GETALIMENTZOOMIN(id).then((res) => {
+            GETALIMENTZOOMIN_V(id).then((res) => {
                 setAlimentData(res?.data)
                 console.log(res?.data)
             })
 
-            GETIMAGESZOOMIN(id).then((res) => {
+            GETIMAGESZOOMIN_V(id).then((res) => {
                 const data = res?.data
                 if (res?.data === "") {
                     setImagesData([])
@@ -89,7 +89,6 @@ export default function Vin() {
                     setImagesData(sortedData)
                 }
 
-                console.log("BLABLABLA: ", res?.data === "")
             })
 
         } else {

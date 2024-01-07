@@ -135,7 +135,7 @@ export const GETFILTRE_V = () => {
 };
 
 export const GETWINEZOOMIN_V = (id: any) => {
-    return axiosInstance.get(`/zoomin.php_v?id=${id}`).catch(() => {
+    return axiosInstance.get(`/zoomin_v.php?id=${id}`).catch(() => {
         return;
     });
 };
