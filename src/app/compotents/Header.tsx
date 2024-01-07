@@ -25,32 +25,12 @@ const items: MenuProps['items'] = [
     },
     {
 
-        label: 'Vodun days',
+        label: <Link href={Pages.vodun_days}>
+            Vodun days
+        </Link>,
         key: 'accord',
         icon: <AiOutlineQq style={{ fontSize: "22px" }} />,
-        children: [
-            {
-                type: 'group',
-                label: 'Item 1',
 
-            },
-            {
-                type: 'group',
-                label: 'Item 2',
-
-            },
-            {
-                type: 'group',
-                label: 'Item 2',
-
-            },
-            {
-                type: 'group',
-                label: 'Item 2',
-
-            },
-
-        ],
     },
     {
         label: <Link href="#">
@@ -58,58 +38,14 @@ const items: MenuProps['items'] = [
         </Link>,
         key: 'Cépages',
         icon: <GiGrapes style={{ fontSize: "22px" }} />,
-        children: [
-            {
-                type: 'group',
-                label: 'Item 1',
-
-            },
-            {
-                type: 'group',
-                label: 'Item 2',
-
-            },
-            {
-                type: 'group',
-                label: 'Item 2',
-
-            },
-            {
-                type: 'group',
-                label: 'Item 2',
-
-            },
-
-        ],
+        disabled: true
     },
     {
         label: 'Régions',
         disabled: true,
         key: 'Régions',
         icon: <CiLocationOn style={{ fontSize: "22px" }} />,
-        children: [
-            {
-                type: 'group',
-                label: 'Item 1',
 
-            },
-            {
-                type: 'group',
-                label: 'Item 2',
-
-            },
-            {
-                type: 'group',
-                label: 'Item 2',
-
-            },
-            {
-                type: 'group',
-                label: 'Item 2',
-
-            },
-
-        ],
     },
 
 ];

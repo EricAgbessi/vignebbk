@@ -10,6 +10,7 @@ import { FrontendUrl, Pages } from "@/config/constant";
 import FooterCustom from "@/app/compotents/Footer";
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import WineCard_v from "../components/windCard_v";
+import Filter_V from "@/app/compotents/Filter_v";
 
 
 export default function Vin() {
@@ -92,11 +93,10 @@ export default function Vin() {
                     : ""}
                 <Button danger type="primary" onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtrer les vins</Button>
 
-                <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Vins</Button>
 
-                <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Champagne</Button>
+                <a href={`${FrontendUrl}/pages/vodun_days?Style_de_Vin=champagne`}> <Button danger className="m-2 rounded-full" >Champagne</Button></a>
 
-                <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Cognac</Button>
+                <a href={`${FrontendUrl}/pages/vodun_days?Style_de_Vin=cognac`}> <Button danger className="m-2 rounded-full" >Cognac</Button> </a>
 
                 {isFiltre === true ?
                     <>
@@ -128,7 +128,7 @@ export default function Vin() {
                 open={open}
 
             >
-                <Filter />
+                <Filter_V />
             </Drawer>
         </Row >
 

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 
 
-const Filter = () => {
+const Filter_V = () => {
     const [filterData, setFilterData] = useState([])
 
 
@@ -44,4 +44,4 @@ const Filter = () => {
         </div>
     )
 };
-export default Filter 
+export default Filter_V 
