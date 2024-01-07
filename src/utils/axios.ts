@@ -31,6 +31,31 @@ export const GETWINE = (params: any) => {
 
 
 
+export const GETWINEV = (params: any) => {
+    if (params) {
+        const queryString = Object.keys(params)
+            .filter(key => params[key] !== null && params[key] !== undefined)
+            .map(key => `${key}=${encodeURIComponent(params[key])}`)
+            .join('&');
+
+        const url = `/index_v.php?${queryString}`;
+        console.log(url); // Affiche la chaîne de requête complète pour test
+
+        return axiosInstance.get(url).catch(() => {
+            return;
+        });
+    } else {
+        return axiosInstance.get('/index_v.php').catch(() => {
+            return;
+        });
+    }
+
+};
+
+
+
+
+
 
 export const GETWINEGROUP = (params: any) => {
     let url = "";
@@ -89,8 +114,6 @@ export const GETIMAGESZOOMIN = (id: any) => {
     });
 };
 
-
-
 export const GETWINE__ = async () => {
     try {
         const response = await axiosInstance.get(`/index.php`);
@@ -102,3 +125,36 @@ export const GETWINE__ = async () => {
     }
 };
 
+
+
+
+export const GETFILTRE_V = () => {
+    return axiosInstance.get(`/getfiltre_v.php`).catch(() => {
+        return;
+    });
+};
+
+export const GETWINEZOOMIN_V = (id: any) => {
+    return axiosInstance.get(`/zoomin.php_v?id=${id}`).catch(() => {
+        return;
+    });
+};
+
+
+export const GETCEPAGESZOOMIN_V = (id: any) => {
+    return axiosInstance.get(`/get_zoomin_cepages_v.php?id=${id}`).catch(() => {
+        return;
+    });
+};
+
+export const GETALIMENTZOOMIN_V = (id: any) => {
+    return axiosInstance.get(`/get_zoomin_aliments_v.php?id=${id}`).catch(() => {
+        return;
+    });
+};
+
+export const GETIMAGESZOOMIN_V = (id: any) => {
+    return axiosInstance.get(`/get_zoomin_images_v.php?id=${id}`).catch(() => {
+        return;
+    });
+};

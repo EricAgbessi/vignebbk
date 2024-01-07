@@ -4,11 +4,12 @@ import CustomHeader from "../../compotents/Header";
 import WineCard from "../components/windCard";
 import Filter from "../../compotents/Filter";
 import { useEffect, useState } from "react";
-import { GETWINE, GETWINEGROUP } from "@/utils/axios";
+import { GETWINE, GETWINEGROUP, GETWINEV } from "@/utils/axios";
 import { useRouter } from 'next/navigation';
 import { FrontendUrl, Pages } from "@/config/constant";
 import FooterCustom from "@/app/compotents/Footer";
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import WineCard_v from "../components/windCard_v";
 
 
 export default function Vin() {
@@ -16,47 +17,41 @@ export default function Vin() {
     const [wineData, setWineData] = useState([])
     const [isFiltre, setIsFiltre] = useState(false)
     const [listFiltre, setListFiltre] = useState<string[]>([])
-    const [group, setGroup] = useState<any>("")
 
     useEffect(() => {
         const urlSearchParams = new URLSearchParams(window.location.search);
         const queryParamsExist = urlSearchParams.size;
         let filter;
-        let tableGroup: string[] = []
+        let tableFiltre: string[] = []
 
 
         if (queryParamsExist) {
-            if (urlSearchParams.get('group') !== null && urlSearchParams.get('group') !== undefined) {
-                console.log(urlSearchParams.get('group'));
-                setGroup(urlSearchParams.get('group')?.toString())
-                //tableGroup.push(urlSearchParams.get('group'))
-                GETWINEGROUP(urlSearchParams.get('group')?.toString()).then((res) => {
-                    ///console.log(res?.data);
-                    setWineData(res?.data)
-
-                    /*  const groupedByCepages = {};
-  
-                      res?.data.forEach(wine => {
-                          const cepages = wine.cepages.split('\n');
-                          cepages.forEach(cepage => {
-                              if (!groupedByCepages[cepage]) {
-                                  groupedByCepages[cepage] = [];
-                              }
-                              groupedByCepages[cepage].push(wine);
-                          });
-                      });
-  
-                      console.log(groupedByCepages);*/
-                })
-
-
+            if (urlSearchParams.get('cepages') !== null) {
+                tableFiltre.push("Cépages")
             }
-
+            if (urlSearchParams.get('Region_domaine') !== null) {
+                tableFiltre.push("Régions")
+            }
+            if (urlSearchParams.get('teneur_en_alcool') !== null) {
+                tableFiltre.push("Teneur en alcool")
+            }
+            if (urlSearchParams.get('allergenes') !== null) {
+                tableFiltre.push("Allergènes")
+            }
+            if (urlSearchParams.get('classification') !== null) {
+                tableFiltre.push("Classification")
+            }
+            if (urlSearchParams.get('annees') !== null) {
+                tableFiltre.push("Année")
+            }
+            if (urlSearchParams.get('Style_de_Vin') !== null) {
+                tableFiltre.push("Style de Vin")
+            }
             //
-            //setListFiltre(tableGroup)
+            setListFiltre(tableFiltre)
 
             setIsFiltre(true)
-            /*filter = {
+            filter = {
                 cepages: urlSearchParams.get('cepages'),
                 Region_domaine: urlSearchParams.get('Region_domaine'),
                 teneur_en_alcool: urlSearchParams.get('teneur_en_alcool'),
@@ -64,13 +59,13 @@ export default function Vin() {
                 classification: urlSearchParams.get('classification'),
                 annees: urlSearchParams.get('annees'),
                 Style_de_Vin: urlSearchParams.get('Style_de_Vin')
-            }*/
+            }
         }
 
-        /* GETWINE(filter).then((res) => {
-             ///console.log(res?.data);
-             setWineData(res?.data)
-         })*/
+        GETWINEV(filter).then((res) => {
+            console.log(res?.data);
+            setWineData(res?.data)
+        })
     }, [])
 
 
@@ -95,7 +90,14 @@ export default function Vin() {
                 {isFiltre === true ?
                     <a href={`${FrontendUrl}/pages/vin`}><Button icon={<ArrowLeftOutlined />} className="m-2 rounded-full" /></a>
                     : ""}
-                <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtres</Button>
+                <Button danger type="primary" onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtrer les vins</Button>
+
+                <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Vins</Button>
+
+                <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Champagne</Button>
+
+                <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Cognac</Button>
+
                 {isFiltre === true ?
                     <>
                         {listFiltre?.map((filtre, index) => {
@@ -109,7 +111,7 @@ export default function Vin() {
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
                     {wineData?.map((wine: any, index) => (
                         <div key={index} className="max-w-md h-auto mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-2 h-[500px] m-0">
-                            <WineCard key={index} wine={wine} />
+                            <WineCard_v key={index} wine={wine} />
                         </div>
                     ))}
                 </div>

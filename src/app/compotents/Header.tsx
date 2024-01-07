@@ -5,7 +5,7 @@ import type { DrawerProps, MenuProps, RadioChangeEvent } from 'antd';
 import { Button, Drawer, Input, Menu, Row, Space } from 'antd';
 import Search, { SearchProps } from 'antd/es/input/Search';
 import { GiWineGlass, GiGrapes, GiPositionMarker } from 'react-icons/gi'
-import { AiOutlineMenu } from 'react-icons/ai'
+import { AiOutlineMenu, AiOutlineQq } from 'react-icons/ai'
 import { LiaCheeseSolid } from 'react-icons/lia'
 import { CiSearch, CiLocationOn } from 'react-icons/ci'
 import Link from 'next/link';
@@ -24,9 +24,10 @@ const items: MenuProps['items'] = [
         icon: <GiWineGlass style={{ fontSize: "22px" }} />,
     },
     {
-        label: 'Accords mets et vins',
+
+        label: 'Vodun days',
         key: 'accord',
-        icon: <LiaCheeseSolid style={{ fontSize: "22px" }} />,
+        icon: <AiOutlineQq style={{ fontSize: "22px" }} />,
         children: [
             {
                 type: 'group',
@@ -52,7 +53,7 @@ const items: MenuProps['items'] = [
         ],
     },
     {
-        label: <Link href={Pages.goupe}>
+        label: <Link href="#">
             Cépages
         </Link>,
         key: 'Cépages',
@@ -199,8 +200,8 @@ const CustomHeader: React.FC = () => {
                             </li>
 
                             <li>
-                                <Link href={Pages.vin} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
-                                    <LiaCheeseSolid style={{ fontSize: "22px" }} /><span>Accords mets et vins</span>
+                                <Link href={Pages.vodun_days} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
+                                    <AiOutlineQq style={{ fontSize: "22px" }} /><span>Vodun days</span>
                                 </Link>
                             </li>
 

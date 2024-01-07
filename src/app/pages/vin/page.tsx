@@ -84,11 +84,6 @@ export default function Vin() {
     return <div>
         <Row className='lg:mr-[10%] lg:ml-[10%] mb-4 mt-20 '>
             <CustomHeader />
-
-
-
-
-
             <div className="flex flex-row w-full mr-4" >
                 {isFiltre === true ?
                     <a href={`${FrontendUrl}/pages/vin`}><Button icon={<ArrowLeftOutlined />} className="m-2 rounded-full" /></a>
