@@ -292,7 +292,7 @@ export default function Vin() {
                                 </div>
                             </div>
                             <div className="px-6 py-4" style={{ backgroundColor: "#ba1628" }}>
-                                <div className="font-bold text-xl mb-2 text-white">Note VigneBBK</div>
+                                <div className="font-bold text-xl mb-2 text-white">Cote vivino</div>
                             </div>
                         </div>
                     </div>

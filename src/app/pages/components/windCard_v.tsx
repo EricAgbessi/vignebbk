@@ -19,6 +19,9 @@ const WineCard_v = (props: any) => {
     const router = useRouter()
 
 
+    console.log("BLAVLA", props?.wine);
+
+
     const contentStyle: React.CSSProperties = {
         height: '160px',
         color: '#fff',
@@ -63,6 +66,13 @@ const WineCard_v = (props: any) => {
                         <div className='flex flex-row m-2'>
                             <IoIosColorPalette style={{ fontSize: "22px" }} /> <span>{props?.wine?.Style_de_Vin}</span>
                         </div>
+
+                        <div className='flex flex-row m-2'>
+                            <span className='mr-2 font-bold'>Prix</span>
+                            <span>{props?.wine?.prix_unitaire}</span>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
