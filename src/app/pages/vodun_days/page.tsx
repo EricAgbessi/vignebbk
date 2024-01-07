@@ -93,6 +93,7 @@ export default function Vin() {
                     : ""}
                 <Button danger type="primary" onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtrer les vins</Button>
 
+                <a href={`${FrontendUrl}/pages/vodun_days`}> <Button danger className="m-2 rounded-full" >Tout</Button></a>
 
                 <a href={`${FrontendUrl}/pages/vodun_days?Style_de_Vin=champagne`}> <Button danger className="m-2 rounded-full" >Champagne</Button></a>
 
