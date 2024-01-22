@@ -70,14 +70,14 @@ const WineCard = (props: any) => {
 
 
                         <div className='flex flex-row m-2'>
-                            <PhoneOutlined style={{ fontSize: "22px" }} /> <span style={{ fontSize: "10px" }}>  +229 95 06 70 17</span>
+                            <PhoneOutlined style={{ fontSize: "22px" }} /> <span style={{ fontSize: "10px" }}> +33 7 66 19 53 41 </span>
                         </div>
 
 
 
 
                         <div className='flex flex-row m-2'>
-                            <FaWhatsapp style={{ fontSize: "22px" }} /> <span style={{ fontSize: "10px" }}> +33 7 66 19 53 41</span>
+                            <FaWhatsapp style={{ fontSize: "22px" }} /> <span style={{ fontSize: "10px" }}>+229 95 06 70 17 </span>
                         </div>
                     </div>
                 </div>

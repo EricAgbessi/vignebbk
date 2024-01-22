@@ -287,7 +287,7 @@ export default function Vin() {
                                             <span className="font-bold">Contact</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
-                                            <a>+229 95 06 70 17</a>
+                                            <a>+33 7 66 19 53 41 </a>
                                         </div>
                                     </div>
 
@@ -298,7 +298,7 @@ export default function Vin() {
                                             <span className="font-bold">Whatsapp</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
-                                            <a>+33 7 66 19 53 41</a>
+                                            <a>+229 95 06 70 17</a>
                                         </div>
                                     </div>
 
