@@ -4,6 +4,7 @@ import React from 'react';
 import { Card, Typography, Image, Rate } from 'antd';
 import { IoIosWater, IoIosColorPalette } from 'react-icons/io';
 import { CiSearch, CiLocationOn } from 'react-icons/ci'
+import { FaWhatsapp } from 'react-icons/fa6'
 import { GiGrapes } from 'react-icons/gi'
 import { useRouter } from 'next/navigation';
 import { ApiUrl, Pages } from '@/config/constant';
@@ -69,7 +70,14 @@ const WineCard = (props: any) => {
 
 
                         <div className='flex flex-row m-2'>
-                            <PhoneOutlined style={{ fontSize: "22px" }} /> <span> +229 97 97 05 32</span>
+                            <PhoneOutlined style={{ fontSize: "22px" }} /> <span style={{ fontSize: "10px" }}>  +229 95 06 70 17</span>
+                        </div>
+
+
+
+
+                        <div className='flex flex-row m-2'>
+                            <FaWhatsapp style={{ fontSize: "22px" }} /> <span style={{ fontSize: "10px" }}> +33 7 66 19 53 41</span>
                         </div>
                     </div>
                 </div>

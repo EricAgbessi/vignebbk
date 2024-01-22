@@ -116,12 +116,16 @@ export default function Vin() {
             </div>
 
 
-            <div className="flex flex-row w-full mr-4" >
+            <div className="flex flex-row w-full mr-4 overflow-x-auto w-full">
                 <a href={`${FrontendUrl}/pages/vin?classification=Grand%20Cru`}> <Button type="link" onClick={navigate} block className={`m-2 rounded-full ${filtre === 'Grands crus' ? 'bg-red-700 text-white' : ''}`} >Grands crus</Button></a>
 
                 <a href={`${FrontendUrl}/pages/vin?classification=Petite%20crue`}> <Button type="link" onClick={navigate} block className={`m-2 rounded-full ${filtre === 'Petits crus' ? 'bg-red-700 text-white' : ''}`} >Petits crus</Button></a>
 
-                <a href={`${FrontendUrl}/pages/vodun_days?Style_de_Vin=cognac`}> <Button disabled type="link" block className="m-2 rounded-full" >Cognac</Button> </a>
+                <a href={`${FrontendUrl}/pages/vin?Style_de_Vin=Cognac`}> <Button type="link" block className="m-2 rounded-full" >Cognac</Button> </a>
+
+                <a href={`${FrontendUrl}/pages/vin?Style_de_Vin=Champagne`}> <Button type="link" block className="m-2 rounded-full" >Champagnes</Button> </a>
+
+
             </div>
 
 

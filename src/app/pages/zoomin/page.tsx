@@ -13,6 +13,8 @@ import { GiGrapes } from 'react-icons/gi'
 import FooterCustom from "@/app/compotents/Footer";
 import { ApiUrl, FrontendUrl, Pages } from "@/config/constant";
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import { FaWhatsapp } from 'react-icons/fa6'
+
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import {
@@ -286,9 +288,22 @@ export default function Vin() {
                                             <span className="font-bold">Contact</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
-                                            <a>+229 97 97 05 32</a>
+                                            <a>+229 95 06 70 17</a>
                                         </div>
                                     </div>
+
+
+                                    <div className="flex justify-between border-b border-gray-300 py-2">
+                                        <div className='flex flex-row m-2'>
+                                            <FaWhatsapp style={{ fontSize: "22px" }} />
+                                            <span className="font-bold">Whatsapp</span>
+                                        </div>
+                                        <div style={{ color: "#ba1628", fontWeight: "bold" }}>
+                                            <a>+33 7 66 19 53 41</a>
+                                        </div>
+                                    </div>
+
+
 
 
 
@@ -310,7 +325,7 @@ export default function Vin() {
                                 </div>
                             </div>
                             <div className="px-6 py-4" style={{ backgroundColor: "#ba1628" }}>
-                                <div className="font-bold text-xl mb-2 text-white">Note VigneBBK</div>
+                                <div className="font-bold text-xl mb-2 text-white">Note Vivino</div>
                             </div>
                         </div>
                     </div>
