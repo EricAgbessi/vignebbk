@@ -201,7 +201,6 @@ export default function Vin() {
                                         <span className=" text-4xl">{wineData?.elements}</span>
                                     </div>
                                     <div className='flex flex-row m-2'>
-                                        <p>Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu&apos;il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum</p>
                                     </div>
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
