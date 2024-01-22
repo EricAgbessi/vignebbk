@@ -28,7 +28,7 @@ const items: MenuProps['items'] = [
     {
 
         label: <Link href={`${Pages.vin}?classification=Petite%20crue`}>
-            Petite crue
+            Petits crus
         </Link>,
         key: 'petitecrue',
         icon: <PiWineThin style={{ fontSize: "22px" }} />,
@@ -37,7 +37,7 @@ const items: MenuProps['items'] = [
 
     {
         label: <Link href={`${Pages.vin}?classification=Grand%20Cru`}>
-            Grande crue
+            Grands crus
         </Link>,
         key: 'grandcrue',
         icon: <BiSolidWine style={{ fontSize: "22px" }} />,

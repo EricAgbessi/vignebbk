@@ -7,6 +7,9 @@ import { CiSearch, CiLocationOn } from 'react-icons/ci'
 import { GiGrapes } from 'react-icons/gi'
 import { useRouter } from 'next/navigation';
 import { ApiUrl, Pages } from '@/config/constant';
+import {
+    PhoneOutlined
+} from '@ant-design/icons';
 import { Carousel } from 'antd';
 
 
@@ -62,6 +65,11 @@ const WineCard = (props: any) => {
 
                         <div className='flex flex-row m-2'>
                             <IoIosColorPalette style={{ fontSize: "22px" }} /> <span>{props?.wine?.Style_de_Vin}</span>
+                        </div>
+
+
+                        <div className='flex flex-row m-2'>
+                            <PhoneOutlined style={{ fontSize: "22px" }} /> <span> +229 97 97 05 32</span>
                         </div>
                     </div>
                 </div>

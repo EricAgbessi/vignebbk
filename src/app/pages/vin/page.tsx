@@ -16,6 +16,7 @@ export default function Vin() {
     const [wineData, setWineData] = useState([])
     const [isFiltre, setIsFiltre] = useState(false)
     const [listFiltre, setListFiltre] = useState<string[]>([])
+    const [filtre, setFiltre] = useState<string | null>("Tous nos vins")
 
     useEffect(() => {
         const urlSearchParams = new URLSearchParams(window.location.search);
@@ -39,6 +40,12 @@ export default function Vin() {
             }
             if (urlSearchParams.get('classification') !== null) {
                 tableFiltre.push("Classification")
+
+                const classif = urlSearchParams.get('classification');
+                if (classif === "Petite crue")
+                    setFiltre("Petits crus")
+                if (classif === "Grand Cru")
+                    setFiltre("Grands crus")
             }
             if (urlSearchParams.get('annees') !== null) {
                 tableFiltre.push("Année")
@@ -81,6 +88,10 @@ export default function Vin() {
     };
     const style: React.CSSProperties = { background: '#0092ff', padding: '8px 0' };
 
+
+    const navigate = () => {
+        document.location.reload()
+    }
     return <div>
         <Row className='lg:mr-[10%] lg:ml-[10%] mb-4 mt-20 '>
             <CustomHeader />
@@ -97,7 +108,26 @@ export default function Vin() {
                     </>
 
                     : ""}
+
+
+
+
+
             </div>
+
+
+            <div className="flex flex-row w-full mr-4" >
+                <a href={`${FrontendUrl}/pages/vin?classification=Grand%20Cru`}> <Button type="link" onClick={navigate} block className={`m-2 rounded-full ${filtre === 'Grands crus' ? 'bg-red-700 text-white' : ''}`} >Grands crus</Button></a>
+
+                <a href={`${FrontendUrl}/pages/vin?classification=Petite%20crue`}> <Button type="link" onClick={navigate} block className={`m-2 rounded-full ${filtre === 'Petits crus' ? 'bg-red-700 text-white' : ''}`} >Petits crus</Button></a>
+
+                <a href={`${FrontendUrl}/pages/vodun_days?Style_de_Vin=cognac`}> <Button disabled type="link" block className="m-2 rounded-full" >Cognac</Button> </a>
+            </div>
+
+
+
+            <Row className=" bg-red-700 w-full text-white text-center p-2 rounded-md" justify="center" ><p>{filtre}</p></Row>
+
             <div className="flex flex-row mt-4 ">
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
                     {wineData?.map((wine: any, index) => (

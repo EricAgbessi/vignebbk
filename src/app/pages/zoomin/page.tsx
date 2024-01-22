@@ -15,7 +15,9 @@ import { ApiUrl, FrontendUrl, Pages } from "@/config/constant";
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-
+import {
+    PhoneOutlined
+} from '@ant-design/icons';
 
 export default function Vin() {
     const router = useRouter()
@@ -277,6 +279,20 @@ export default function Vin() {
                                             <a href={`${FrontendUrl}${Pages.vin}?Style_de_Vin=${wineData?.Style_de_Vin}`}>{wineData?.Style_de_Vin}</a>
                                         </div>
                                     </div>
+
+                                    <div className="flex justify-between border-b border-gray-300 py-2">
+                                        <div className='flex flex-row m-2'>
+                                            <PhoneOutlined style={{ fontSize: "22px" }} />
+                                            <span className="font-bold">Contact</span>
+                                        </div>
+                                        <div style={{ color: "#ba1628", fontWeight: "bold" }}>
+                                            <a>+229 97 97 05 32</a>
+                                        </div>
+                                    </div>
+
+
+
+
                                 </div>
                             </div>
                         </div>
