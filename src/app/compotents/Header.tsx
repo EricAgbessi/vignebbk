@@ -4,7 +4,7 @@ import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/ico
 import type { DrawerProps, MenuProps, RadioChangeEvent } from 'antd';
 import { Button, Drawer, Input, Menu, Row, Space } from 'antd';
 import Search, { SearchProps } from 'antd/es/input/Search';
-import { GiWineGlass, GiGrapes, GiPositionMarker } from 'react-icons/gi'
+import { GiWineGlass, GiGrapes, GiBrokenBottle } from 'react-icons/gi'
 import { AiOutlineMenu, AiOutlineQq } from 'react-icons/ai'
 import { LiaCheeseSolid } from 'react-icons/lia'
 import { CiSearch, CiLocationOn } from 'react-icons/ci'
@@ -12,41 +12,50 @@ import Link from 'next/link';
 import { ApiUrl, Pages } from '@/config/constant';
 import { IoIosWater } from 'react-icons/io';
 import { LuGlassWater } from "react-icons/lu";
-
+import { BiSolidWine } from "react-icons/bi"
+import { PiWineThin } from "react-icons/pi"
+import { FaWineBottle } from "react-icons/fa6"
 import Image from 'next/image';
 
 const items: MenuProps['items'] = [
     {
-        label: <Link href={Pages.vin}>
-            vin
+        label: <Link href={`${Pages.vin}`}>
+            vins
         </Link>,
         key: 'vin',
         icon: <GiWineGlass style={{ fontSize: "22px" }} />,
     },
     {
 
-        label: <Link href={Pages.vodun_days}>
-            Vodun days
+        label: <Link href={`${Pages.vin}?classification=Petite%20crue`}>
+            Petite crue
         </Link>,
-        key: 'accord',
-        icon: <AiOutlineQq style={{ fontSize: "22px" }} />,
+        key: 'petitecrue',
+        icon: <PiWineThin style={{ fontSize: "22px" }} />,
 
     },
     {
-        label: <Link href="#">
-            Cépages
+        label: <Link href={`${Pages.vin}?classification=Grand%20Cru`}>
+            Grande crue
         </Link>,
-        key: 'Cépages',
-        icon: <GiGrapes style={{ fontSize: "22px" }} />,
-        disabled: true
+        key: 'grandcrue',
+        icon: <BiSolidWine style={{ fontSize: "22px" }} />,
     },
     {
-        label: 'Régions',
-        disabled: true,
-        key: 'Régions',
-        icon: <CiLocationOn style={{ fontSize: "22px" }} />,
-
+        label: <Link href={`${Pages.vin}`}>
+            Champagnes
+        </Link>,
+        key: 'Champagnes',
+        icon: <FaWineBottle style={{ fontSize: "22px" }} />,
     },
+    {
+        label: <Link href={`${Pages.vin}`}>
+            Cognac
+        </Link>,
+        key: 'Cognac',
+        icon: <GiBrokenBottle style={{ fontSize: "22px" }} />,
+    },
+
 
 ];
 
@@ -131,43 +140,37 @@ const CustomHeader: React.FC = () => {
                         <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white ">
                             <li>
                                 <Link href={Pages.vin} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
-                                    <GiWineGlass style={{ fontSize: "22px" }} /><span>vin</span>
+                                    <GiWineGlass style={{ fontSize: "22px" }} /><span>vins</span>
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href={Pages.vodun_days} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
-                                    <AiOutlineQq style={{ fontSize: "22px" }} /><span>Vodun days</span>
+                                <Link href={`${Pages.vin}?classification=Petite%20crue`} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
+                                    <PiWineThin style={{ fontSize: "22px" }} /><span>Petite crue</span>
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href={Pages.vin} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
-                                    <GiGrapes style={{ fontSize: "22px" }} /><span>Cépages</span>
-                                </Link>
-                            </li>
-
-
-
-
-
-                            <li>
-                                <Link href={Pages.vin} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
-                                    <IoIosWater style={{ fontSize: "22px" }} /><span>Teneur en alcool</span>
+                                <Link href={`${Pages.vin}?classification=Grand%20Cru`} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
+                                    <BiSolidWine style={{ fontSize: "22px" }} /><span>Grande crue</span>
                                 </Link>
                             </li>
 
                             <li>
                                 <Link href={Pages.vin} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
-                                    <LuGlassWater style={{ fontSize: "22px" }} /><span>Type de crue</span>
+                                    <FaWineBottle style={{ fontSize: "22px" }} /><span>Champagnes</span>
                                 </Link>
                             </li>
 
                             <li>
                                 <Link href={Pages.vin} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
-                                    <CiLocationOn style={{ fontSize: "22px" }} /><span>Régions</span>
+                                    <GiBrokenBottle style={{ fontSize: "22px" }} /><span>Cognac</span>
                                 </Link>
                             </li>
+
+
+
+
 
                         </ul>
                     </div>

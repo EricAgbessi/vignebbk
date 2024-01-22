@@ -10,9 +10,10 @@ const App: React.FC = () => {
             <Space direction="vertical" align="center">
                 <QRCode value={text || '-'}
                     icon="http://92.222.164.174/vignebbk_php/logo.png"
+
                 />
                 <Input
-                    className=' hidden'
+                    className='hidden'
                     placeholder="-"
                     maxLength={60}
                     value={text}
