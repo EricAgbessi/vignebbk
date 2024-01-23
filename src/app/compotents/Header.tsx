@@ -158,7 +158,7 @@ const CustomHeader: React.FC = () => {
                             </li>
 
                             <li>
-                                <Link href={Pages.vin} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
+                                <Link href={Pages.champagne} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
                                     <FaWineBottle style={{ fontSize: "22px" }} /><span>Champagnes</span>
                                 </Link>
                             </li>

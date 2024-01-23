@@ -4,13 +4,14 @@ import CustomHeader from "../../compotents/Header";
 import WineCard from "../components/windCard";
 import Filter from "../../compotents/Filter";
 import { useEffect, useState } from "react";
-import { GETWINE, GETWINEGROUP, GETWINEV } from "@/utils/axios";
+import { GETWINE, GETWINECH, GETWINEGROUP, GETWINEV } from "@/utils/axios";
 import { useRouter } from 'next/navigation';
 import { FrontendUrl, Pages } from "@/config/constant";
 import FooterCustom from "@/app/compotents/Footer";
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import WineCard_v from "../components/windCard_v";
 import Filter_V from "@/app/compotents/Filter_v";
+import WineCard_CH from "../components/windCard_ch";
 
 
 export default function Vin() {
@@ -25,7 +26,7 @@ export default function Vin() {
 
 
 
-        GETWINEV(filter).then((res) => {
+        GETWINECH(filter).then((res) => {
             console.log(res?.data);
             setWineData(res?.data)
         })
@@ -57,10 +58,10 @@ export default function Vin() {
                     className={`m-2 rounded-full `} >Petits crus</Button></a>
 
                 <a href={`${FrontendUrl}/pages/cognac`}> <Button type="link" block
-                    className={`m-2 rounded-full bg-red-700 text-white`} >Cognac</Button> </a>
+                    className={`m-2 rounded-full `} >Cognac</Button> </a>
 
                 <a href={`${FrontendUrl}/pages/champagne`}> <Button type="link" block
-                    className={`m-2 rounded-full`} >Champagnes</Button> </a>
+                    className={`m-2 rounded-full bg-red-700 text-white`} >Champagnes</Button> </a>
 
 
             </div>
@@ -68,7 +69,7 @@ export default function Vin() {
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
                     {wineData?.map((wine: any, index) => (
                         <div key={index} className="max-w-md  mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-2 h-[700px] m-0">
-                            <WineCard_v key={index} wine={wine} />
+                            <WineCard_CH key={index} wine={wine} />
                         </div>
                     ))}
                 </div>
