@@ -44,8 +44,8 @@ const WineCard_v = (props: any) => {
     }
     return (
         <div className="max-w-sm bg-white rounded-lg" >
-            <a href={`${Pages.zoomin_v}?id=${props?.wine?.id}`}>
-                <img className="rounded-t-lg" src={props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`} alt="" />
+            <a href={`${Pages.zoomin_v}?id=${props?.wine?.id}`} >
+                <img className="rounded-t-lg h-56" src={props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`} alt="" />
             </a>
 
 
