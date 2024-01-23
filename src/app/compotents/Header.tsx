@@ -50,7 +50,7 @@ const items: MenuProps['items'] = [
         icon: <FaWineBottle style={{ fontSize: "22px" }} />,
     },
     {
-        label: <Link href={`${Pages.vin}`}>
+        label: <Link href={`${Pages.cognac}`}>
             Cognac
         </Link>,
         key: 'Cognac',
@@ -164,7 +164,7 @@ const CustomHeader: React.FC = () => {
                             </li>
 
                             <li>
-                                <Link href={Pages.vin} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
+                                <Link href={Pages.cognac} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
                                     <GiBrokenBottle style={{ fontSize: "22px" }} /><span>Cognac</span>
                                 </Link>
                             </li>

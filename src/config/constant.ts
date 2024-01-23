@@ -3,6 +3,7 @@ export const Pages = {
     zoomin: "/pages/zoomin",
     vodun_days: "/pages/vodun_days",
     zoomin_v: "/pages/zoomin_v",
+    cognac: "/pages/cognac"
 }
 export const ApiUrl = "http://localhost/vin/"
 export const FrontendUrl = "http://localhost:3000"

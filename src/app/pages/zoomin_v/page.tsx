@@ -15,37 +15,33 @@ import { ApiUrl, FrontendUrl, Pages } from "@/config/constant";
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-
+import { FaWhatsapp } from 'react-icons/fa6'
+import {
+    PhoneOutlined
+} from '@ant-design/icons';
 
 export default function Vin() {
     const router = useRouter()
 
 
     interface Wine {
-        Style_de_Vin: string;
-        elements: string;
-        Region_domaine: string;
-        cepages: string;
-        teneur_en_alcool: string;
-        allergenes: string;
-        aliments_compatibles: string;
-        classification: string;
-        annees: string;
-        cote: string;
+        Nom: string;
+        Taillebouteille: string;
+        Catégorie: string;
+        Marque: string;
+        Teneurenalcool: string;
+        PrixdeVente: string;
+        AgeduCognac: string;
         id: string;
         url: string;
     }
 
-    interface Cepage {
-        designation: string;
-        id_vin: string;
-        id: string
-    }
+
 
     interface Images {
         id: Number,
         url: string,
-        id_vin: Number,
+        id_cognac: Number,
         main: Number
     }
     const [wineData, setWineData] = useState<Wine>()
@@ -70,15 +66,7 @@ export default function Vin() {
             })
 
 
-            GETCEPAGESZOOMIN_V(id).then((res) => {
-                setCepageData(res?.data)
-                console.log(res?.data)
-            })
 
-            GETALIMENTZOOMIN_V(id).then((res) => {
-                setAlimentData(res?.data)
-                console.log(res?.data)
-            })
 
             GETIMAGESZOOMIN_V(id).then((res) => {
                 const data = res?.data
@@ -119,7 +107,7 @@ export default function Vin() {
         <Row className=' lg:ml-[10%] lg:mr-[10%]  mb-4 mt-20'>
             <CustomHeader />
             <div className="flex flex-row justify-around w-full block lg:hidden mr-4" >
-                <a href={`${FrontendUrl}/pages/vin`}><Button icon={<ArrowLeftOutlined />} className="m-2 rounded-full" /></a>
+                <a href={`${FrontendUrl}/pages/cognac`}><Button icon={<ArrowLeftOutlined />} className="m-2 rounded-full" /></a>
                 <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtres</Button>
                 <Button danger className="m-2 rounded-full" >Trier</Button>
             </div>
@@ -138,7 +126,7 @@ export default function Vin() {
                 <div className="w-full md:w-1/2 lg:w-4/5 bg-white rounded-xl  overflow-hidden">
                     <div className="md:flex w-full flex-row justify-between " style={{ width: "100%" }}>
                         <div className="md:w-[30%]" >
-                            <Badge.Ribbon text={wineData?.Style_de_Vin} color="red" >
+                            <Badge.Ribbon text={wineData?.Catégorie} color="red" >
                                 {
                                     imagesData.length === 0 ? <img style={{ height: "500px", width: "100%" }} className="h-48 md:h-96 w-[100%] object-cover  md:w-[30%]" src={`${ApiUrl}/placeholder.png`} alt="#" />
                                         :
@@ -171,7 +159,7 @@ export default function Vin() {
                                                                 }}
                                                             />
                                                         </div>
-                                                        <p className="legend">{wineData?.elements} {keys + 1}</p>
+                                                        <p className="legend">{wineData?.Nom} {keys + 1}</p>
 
                                                     </div>
                                                 })
@@ -193,88 +181,82 @@ export default function Vin() {
                             <div className="p-2 w-[100%]">
                                 <div >
                                     <div className='flex flex-row m-2 font-bold '>
-                                        <span className=" text-4xl">{wineData?.elements}</span>
+                                        <span className=" text-4xl">{wineData?.Nom}</span>
                                     </div>
                                     <div className='flex flex-row m-2'>
                                     </div>
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
-                                            <CiLocationOn style={{ fontSize: "22px" }} />
-                                            <span className="font-bold">Région/Domaine</span>
+                                            <span className="font-bold">Taille de la bouteille</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
-                                            <a href={`${FrontendUrl}${Pages.vin}?Region_domaine=${wineData?.Region_domaine}`}>{wineData?.Region_domaine}</a>
+                                            <a>{wineData?.Taillebouteille}</a>
 
                                         </div>
                                     </div>
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
-                                            <GiGrapes style={{ fontSize: "22px" }} />
-                                            <span className="font-bold">CEPAGES</span>
+                                            <span className="font-bold">Catégorie</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
-                                            {
-                                                Array.isArray(cepageData) && cepageData.map((cp: Cepage, index) => (
-                                                    <a href={`${FrontendUrl}${Pages.vin}?cepages=${cp.designation}`} key={index} className="mr-2">{cp.designation}</a>
-                                                ))
-                                            }
+                                            <a>{wineData?.Catégorie}</a>
                                         </div>
                                     </div>
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
-                                            <IoIosWater style={{ fontSize: "22px" }} />
-                                            <span className="font-bold">Teneur en alcool</span>
+                                            <span className="font-bold">Marque</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
-                                            <a href={`${FrontendUrl}${Pages.vin}?teneur_en_alcool=${wineData?.teneur_en_alcool}`}>{wineData?.teneur_en_alcool}</a>
+                                            <a>{wineData?.Marque}</a>
                                         </div>
                                     </div>
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
-                                            <span className="font-bold">Allergenes</span>
+                                            <span className="font-bold">Teneur d'alcool</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
-                                            <a href={`${FrontendUrl}${Pages.vin}?allergenes=${wineData?.allergenes}`}>{wineData?.allergenes}</a>
+                                            <a>{wineData?.Teneurenalcool}</a>
                                         </div>
                                     </div>
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
-                                            <span className="font-bold">Aliments compatibles</span>
+                                            <span className="font-bold">Prix</span>
                                         </div>
 
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
-                                            {
-                                                Array.isArray(alimentData) && alimentData.map((cp: Cepage, index) => (
-                                                    <a href={`${FrontendUrl}${Pages.vin}?aliments_compatibles=${cp.designation}`} key={index} className="mr-2">{cp.designation}</a>
-                                                ))
-                                            }
+                                            <a >{wineData?.PrixdeVente}</a>
                                         </div>
                                     </div>
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
-                                            <span className="font-bold">Classification</span>
+                                            <span className="font-bold">Age du Cognac</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
-                                            <a href={`${FrontendUrl}${Pages.vin}?classification=${wineData?.classification}`}>{wineData?.classification}</a>
+                                            <a >{wineData?.AgeduCognac}</a>
                                         </div>
                                     </div>
+
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
-                                            <span className="font-bold">Annees</span>
+                                            <PhoneOutlined style={{ fontSize: "22px" }} />
+                                            <span className="font-bold">Contact</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
-                                            <a href={`${FrontendUrl}${Pages.vin}?annees=${wineData?.annees}`}>{wineData?.annees}</a>
+                                            <a>+33 7 66 19 53 41 </a>
                                         </div>
                                     </div>
+
+
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
-                                            <IoIosColorPalette style={{ fontSize: "22px" }} />
-                                            <span className="font-bold">Style de Vin</span>
+                                            <FaWhatsapp style={{ fontSize: "22px" }} />
+                                            <span className="font-bold">Whatsapp</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
-                                            <a href={`${FrontendUrl}${Pages.vin}?Style_de_Vin=${wineData?.Style_de_Vin}`}>{wineData?.Style_de_Vin}</a>
+                                            <a>+229 95 06 70 17</a>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -282,20 +264,6 @@ export default function Vin() {
                 </div >
 
                 <div className="w-full md:w-1/2 lg:w-1/5 p-4">
-                    <div className="mb-8" >
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg h-32">
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">
-                                    {wineData?.cote != undefined ?
-                                        <Rate style={{ color: "#ba1628" }} disabled allowHalf defaultValue={parseFloat(wineData?.cote)} /> : ""
-                                    }
-                                </div>
-                            </div>
-                            <div className="px-6 py-4" style={{ backgroundColor: "#ba1628" }}>
-                                <div className="font-bold text-xl mb-2 text-white">Cote vivino</div>
-                            </div>
-                        </div>
-                    </div>
 
                     <QRCode
                         errorLevel="H"

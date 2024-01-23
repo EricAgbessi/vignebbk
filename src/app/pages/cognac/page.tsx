@@ -87,26 +87,20 @@ export default function Vin() {
         <Row className='lg:mr-[10%] lg:ml-[10%] mb-4 mt-20 '>
             <CustomHeader />
 
-            <div className="flex flex-row w-full mr-4" >
-                {isFiltre === true ?
-                    <a href={`${FrontendUrl}/pages/vin`}><Button icon={<ArrowLeftOutlined />} className="m-2 rounded-full" /></a>
-                    : ""}
-                <Button danger type="primary" onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtrer les vins</Button>
+            <div className="flex flex-row w-full mr-4 overflow-x-auto w-full">
+                <a href={`${FrontendUrl}/pages/vin?classification=Grand%20Cru`}> <Button type="link" block
+                    className={`m-2 rounded-full`} >Grands crus</Button></a>
 
-                <a href={`${FrontendUrl}/pages/vodun_days`}> <Button danger className="m-2 rounded-full" >Tout</Button></a>
+                <a href={`${FrontendUrl}/pages/vin?classification=Petite%20crue`}> <Button type="link" block
+                    className={`m-2 rounded-full `} >Petits crus</Button></a>
 
-                <a href={`${FrontendUrl}/pages/vodun_days?Style_de_Vin=champagne`}> <Button danger className="m-2 rounded-full" >Champagne</Button></a>
+                <a href={`${FrontendUrl}/pages/vin?Style_de_Vin=Cognac`}> <Button type="link" block
+                    className={`m-2 rounded-full bg-red-700 text-white`} >Cognac</Button> </a>
 
-                <a href={`${FrontendUrl}/pages/vodun_days?Style_de_Vin=cognac`}> <Button danger className="m-2 rounded-full" >Cognac</Button> </a>
+                <a href={`${FrontendUrl}/pages/vin?Style_de_Vin=Champagne`}> <Button type="link" block
+                    className={`m-2 rounded-full`} >Champagnes</Button> </a>
 
-                {isFiltre === true ?
-                    <>
-                        {listFiltre?.map((filtre, index) => {
-                            return <Button key={index} type="primary" danger className="m-2 rounded-full" >{filtre}</Button>
-                        })}
-                    </>
 
-                    : ""}
             </div>
             <div className="flex flex-row mt-4 ">
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >

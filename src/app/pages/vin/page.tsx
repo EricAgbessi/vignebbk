@@ -58,7 +58,7 @@ export default function Vin() {
                 setFiltre(classif)
 
             }
-            //
+
             setListFiltre(tableFiltre)
 
             setIsFiltre(true)
@@ -128,7 +128,7 @@ export default function Vin() {
                 <a href={`${FrontendUrl}/pages/vin?classification=Petite%20crue`}> <Button type="link" onClick={navigate} block
                     className={`m-2 rounded-full ${filtre === 'Petits crus' ? 'bg-red-700 text-white' : ''}`} >Petits crus</Button></a>
 
-                <a href={`${FrontendUrl}/pages/vin?Style_de_Vin=Cognac`}> <Button type="link" block
+                <a href={`${FrontendUrl}/pages/cognac`}> <Button type="link" block
                     className={`m-2 rounded-full ${filtre === 'Cognac' ? 'bg-red-700 text-white' : ''}`} >Cognac</Button> </a>
 
                 <a href={`${FrontendUrl}/pages/vin?Style_de_Vin=Champagne`}> <Button type="link" block
