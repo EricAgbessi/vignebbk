@@ -27,7 +27,6 @@ export default function Vin() {
 
 
         GETWINECH(filter).then((res) => {
-            console.log(res?.data);
             setWineData(res?.data)
         })
     }, [])
@@ -68,7 +67,7 @@ export default function Vin() {
             <div className="flex flex-row mt-4 ">
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
                     {wineData?.map((wine: any, index) => (
-                        <div key={index} className="max-w-md  mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-2 h-[700px] m-0">
+                        <div key={index} className="max-w-md  mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-2 h-[800px] m-0">
                             <WineCard_CH key={index} wine={wine} />
                         </div>
                     ))}
