@@ -68,7 +68,7 @@ const WineCard_v = (props: any) => {
                         </div>
 
                         <div className='flex flex-col m-2'>
-                            <p style={{ color: "#ba1628", fontWeight: "bold" }}>Teneur d'alcool</p>
+                            <p style={{ color: "#ba1628", fontWeight: "bold" }}>Teneur en alcool</p>
                             <span>{props?.wine?.Teneurenalcool}</span>
                         </div>
 

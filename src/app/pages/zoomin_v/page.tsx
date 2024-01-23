@@ -212,7 +212,7 @@ export default function Vin() {
                                     </div>
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
-                                            <span className="font-bold">Teneur d'alcool</span>
+                                            <span className="font-bold">Teneur en alcool</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
                                             <a>{wineData?.Teneurenalcool}</a>
