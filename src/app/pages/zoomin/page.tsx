@@ -125,6 +125,8 @@ export default function Vin() {
             <CustomHeader />
             <div className="flex flex-row justify-around w-full block lg:hidden mr-4" >
                 <a href={`${FrontendUrl}/pages/vin`}><Button icon={<ArrowLeftOutlined />} className="m-2 rounded-full" /></a>
+                <Button danger onClick={() => { setOpen(true) }} className="m-2 rounded-full" >Filtres</Button>
+                <Button danger className="m-2 rounded-full" >Trier</Button>
             </div>
 
 

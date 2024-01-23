@@ -8,10 +8,7 @@ import { GiGrapes } from 'react-icons/gi'
 import { useRouter } from 'next/navigation';
 import { ApiUrl, Pages } from '@/config/constant';
 import { Carousel } from 'antd';
-import { FaWhatsapp } from 'react-icons/fa6'
-import {
-    PhoneOutlined
-} from '@ant-design/icons';
+
 
 
 
@@ -85,14 +82,14 @@ const WineCard_v = (props: any) => {
 
 
                         <div className='flex flex-row m-2'>
-                            <PhoneOutlined style={{ fontSize: "22px" }} /> <span style={{ fontSize: "10px" }}> +33 7 66 19 53 41 </span>
+                            <span style={{ fontSize: "10px" }}> +33 7 66 19 53 41 </span>
                         </div>
 
 
 
 
                         <div className='flex flex-row m-2'>
-                            <FaWhatsapp style={{ fontSize: "22px" }} /> <span style={{ fontSize: "10px" }}>+229 95 06 70 17 </span>
+                            <span style={{ fontSize: "10px" }}>+229 95 06 70 17 </span>
                         </div>
 
                     </div>

@@ -16,52 +16,14 @@ import Filter_V from "@/app/compotents/Filter_v";
 export default function Vin() {
     const router = useRouter()
     const [wineData, setWineData] = useState([])
-    const [isFiltre, setIsFiltre] = useState(false)
-    const [listFiltre, setListFiltre] = useState<string[]>([])
+
 
     useEffect(() => {
         const urlSearchParams = new URLSearchParams(window.location.search);
-        const queryParamsExist = urlSearchParams.size;
         let filter;
-        let tableFiltre: string[] = []
 
 
-        if (queryParamsExist) {
-            if (urlSearchParams.get('cepages') !== null) {
-                tableFiltre.push("Cépages")
-            }
-            if (urlSearchParams.get('Region_domaine') !== null) {
-                tableFiltre.push("Régions")
-            }
-            if (urlSearchParams.get('teneur_en_alcool') !== null) {
-                tableFiltre.push("Teneur en alcool")
-            }
-            if (urlSearchParams.get('allergenes') !== null) {
-                tableFiltre.push("Allergènes")
-            }
-            if (urlSearchParams.get('classification') !== null) {
-                tableFiltre.push("Classification")
-            }
-            if (urlSearchParams.get('annees') !== null) {
-                tableFiltre.push("Année")
-            }
-            if (urlSearchParams.get('Style_de_Vin') !== null) {
-                tableFiltre.push("Style de Vin")
-            }
-            //
-            setListFiltre(tableFiltre)
 
-            setIsFiltre(true)
-            filter = {
-                cepages: urlSearchParams.get('cepages'),
-                Region_domaine: urlSearchParams.get('Region_domaine'),
-                teneur_en_alcool: urlSearchParams.get('teneur_en_alcool'),
-                allergenes: urlSearchParams.get('allergenes'),
-                classification: urlSearchParams.get('classification'),
-                annees: urlSearchParams.get('annees'),
-                Style_de_Vin: urlSearchParams.get('Style_de_Vin')
-            }
-        }
 
         GETWINEV(filter).then((res) => {
             console.log(res?.data);
@@ -87,7 +49,7 @@ export default function Vin() {
         <Row className='lg:mr-[10%] lg:ml-[10%] mb-4 mt-20 '>
             <CustomHeader />
 
-            <div className="flex flex-row w-full mr-4 overflow-x-auto w-full">
+            <div className="flex flex-row  mr-4 overflow-x-auto w-full">
                 <a href={`${FrontendUrl}/pages/vin?classification=Grand%20Cru`}> <Button type="link" block
                     className={`m-2 rounded-full`} >Grands crus</Button></a>
 
@@ -105,7 +67,7 @@ export default function Vin() {
             <div className="flex flex-row mt-4 ">
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
                     {wineData?.map((wine: any, index) => (
-                        <div key={index} className="max-w-md h-auto mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-2 h-[500px] m-0">
+                        <div key={index} className="max-w-md  mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-2 h-[500px] m-0">
                             <WineCard_v key={index} wine={wine} />
                         </div>
                     ))}
