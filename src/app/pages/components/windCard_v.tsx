@@ -9,6 +9,12 @@ import { useRouter } from 'next/navigation';
 import { ApiUrl, Pages } from '@/config/constant';
 import { Carousel } from 'antd';
 
+import { FaWhatsapp } from 'react-icons/fa6'
+
+import {
+    PhoneOutlined
+} from '@ant-design/icons';
+
 
 
 
@@ -37,9 +43,9 @@ const WineCard_v = (props: any) => {
         router?.push(Pages.zoomin)
     }
     return (
-        <div className="max-w-sm bg-white rounded-lg ">
+        <div className="max-w-sm bg-white rounded-lg" >
             <a href={`${Pages.zoomin_v}?id=${props?.wine?.id}`}>
-                <img className="rounded-t-lg" src={props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`} alt="" />
+                <img className="rounded-t-lg h-36" src={props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`} alt="" />
             </a>
 
 
@@ -49,7 +55,6 @@ const WineCard_v = (props: any) => {
                 </a>
                 <div className="flex flex-row">
                     <div>
-                        <div className='m-2'><Rate style={{ color: "#ba1628" }} disabled allowHalf defaultValue={parseFloat(props?.wine?.cote)} /></div>
                         <div className='flex flex-col m-2'>
                             <p className="" style={{ color: "#ba1628", fontWeight: "bold" }}>Taille</p>
                             <span>{props?.wine?.Taillebouteille}</span>
@@ -82,6 +87,7 @@ const WineCard_v = (props: any) => {
 
 
                         <div className='flex flex-row m-2'>
+                            <PhoneOutlined style={{ fontSize: "22px" }} />
                             <span style={{ fontSize: "10px" }}> +33 7 66 19 53 41 </span>
                         </div>
 
@@ -89,6 +95,7 @@ const WineCard_v = (props: any) => {
 
 
                         <div className='flex flex-row m-2'>
+                            <FaWhatsapp style={{ fontSize: "22px" }} />
                             <span style={{ fontSize: "10px" }}>+229 95 06 70 17 </span>
                         </div>
 
