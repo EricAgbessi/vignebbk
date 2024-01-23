@@ -50,7 +50,7 @@ const WineCard_CH = (props: any) => {
 
 
             <div className="p-5">
-                <a href={`${Pages.zoomin}?id=${props?.wine?.id_important}`}>
+                <a href={`${Pages.zoomin}?id=${props?.wine?.id}`}>
                     <h5 className="mb-2 text-md  sm:text-md md:text-md lg:text-xl  font-bold tracking-tight ">{props?.wine?.Nom}</h5>
                 </a>
                 <div className="flex flex-row">

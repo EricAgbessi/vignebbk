@@ -110,16 +110,6 @@ export default function Vin() {
                 <a href={`${FrontendUrl}/pages/champagne`}><Button icon={<ArrowLeftOutlined />} className="m-2 rounded-full" /></a>
             </div>
 
-
-
-
-
-
-
-
-
-
-
             <div className="flex flex-col md:flex-row md:justify-center  mt-4 w-full"  >
                 <div className="w-full md:w-1/2 lg:w-4/5 bg-white rounded-xl  overflow-hidden">
                     <div className="md:flex w-full flex-row justify-between " style={{ width: "100%" }}>
