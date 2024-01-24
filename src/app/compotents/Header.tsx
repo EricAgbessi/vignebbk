@@ -147,13 +147,13 @@ const CustomHeader: React.FC = () => {
 
                             <li>
                                 <Link href={`${Pages.vin}?classification=Petite%20crue`} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
-                                    <PiWineThin style={{ fontSize: "22px" }} /><span>Petite crue</span>
+                                    <PiWineThin style={{ fontSize: "22px" }} /><span>Petits crus</span>
                                 </Link>
                             </li>
 
                             <li>
                                 <Link href={`${Pages.vin}?classification=Grand%20Cru`} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
-                                    <BiSolidWine style={{ fontSize: "22px" }} /><span>Grande crue</span>
+                                    <BiSolidWine style={{ fontSize: "22px" }} /><span>Grands crus</span>
                                 </Link>
                             </li>
 
