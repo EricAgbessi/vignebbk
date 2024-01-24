@@ -4,7 +4,7 @@ export const Pages = {
     vodun_days: "/pages/vodun_days",
     zoomin_v: "/pages/zoomin_v",
     cognac: "/pages/cognac",
-    champagne: "/pages/champagne",
+    champagne: "/pages/vigne",
     zoomin_ch: "/pages/zoomin_ch",
 
 }

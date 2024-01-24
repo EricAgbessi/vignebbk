@@ -52,7 +52,7 @@ const HomeBody = () => {
                                 <a href={`${FrontendUrl}/pages/cognac`}> <Button ghost
                                     className={`m-2 rounded-full`} >Cognac</Button> </a>
 
-                                <a href={`${FrontendUrl}/pages/champagne`}> <Button ghost
+                                <a href={`${FrontendUrl}/pages/vigne`}> <Button ghost
                                     className={`m-2 rounded-full`} >Champagnes</Button> </a>
                             </div>
                         </div>

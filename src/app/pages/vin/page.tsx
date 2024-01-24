@@ -131,7 +131,7 @@ export default function Vin() {
                 <a href={`${FrontendUrl}/pages/cognac`}> <Button type="link" block
                     className={`m-2 rounded-full ${filtre === 'Cognac' ? 'bg-red-700 text-white' : ''}`} >Cognacs & Eau de vie</Button> </a>
 
-                <a href={`${FrontendUrl}/pages/champagne`}> <Button type="link" block
+                <a href={`${FrontendUrl}/pages/vigne`}> <Button type="link" block
                     className={`m-2 rounded-full ${filtre === 'Champagne' ? 'bg-red-700 text-white' : ''}`} >Champagnes</Button> </a>
 
 
