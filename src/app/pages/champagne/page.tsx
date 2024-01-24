@@ -57,7 +57,7 @@ export default function Vin() {
                     className={`m-2 rounded-full `} >Petits crus</Button></a>
 
                 <a href={`${FrontendUrl}/pages/cognac`}> <Button type="link" block
-                    className={`m-2 rounded-full `} >Cognac</Button> </a>
+                    className={`m-2 rounded-full `} >Cognacs & Eau de vie</Button> </a>
 
                 <a href={`${FrontendUrl}/pages/champagne`}> <Button type="link" block
                     className={`m-2 rounded-full bg-red-700 text-white`} >Champagnes</Button> </a>

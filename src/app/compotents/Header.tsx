@@ -51,7 +51,7 @@ const items: MenuProps['items'] = [
     },
     {
         label: <Link href={`${Pages.cognac}`}>
-            Cognac
+            Cognacs & Eau de vie
         </Link>,
         key: 'Cognac',
         icon: <GiBrokenBottle style={{ fontSize: "22px" }} />,
@@ -165,7 +165,7 @@ const CustomHeader: React.FC = () => {
 
                             <li>
                                 <Link href={Pages.cognac} className=" flex flex-row block py-2 px-3 text-gray-700 bg-blue-700 rounded md:bg-transparent " aria-current="page">
-                                    <GiBrokenBottle style={{ fontSize: "22px" }} /><span>Cognac</span>
+                                    <GiBrokenBottle style={{ fontSize: "22px" }} /><span>Cognacs & Eau de vie</span>
                                 </Link>
                             </li>
 
