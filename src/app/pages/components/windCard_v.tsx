@@ -81,6 +81,11 @@ const WineCard_v = (props: any) => {
 
 
 
+                        <div className='flex flex-col m-2'>
+                            <span className='mr-2 font-bold' style={{ color: "#ba1628", fontWeight: "bold" }}>Age du Cognac</span>
+                            <span>{props?.wine?.AgeduCognac}</span>
+                        </div>
+
 
                         <div className='flex flex-row m-2'>
                             <PhoneOutlined style={{ fontSize: "22px" }} />

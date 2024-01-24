@@ -228,6 +228,15 @@ export default function Vin() {
                                         </div>
                                     </div>
 
+                                    <div className="flex justify-between border-b border-gray-300 py-2">
+                                        <div className='flex flex-row m-2'>
+                                            <span className="font-bold">Age du Cognac</span>
+                                        </div>
+                                        <div style={{ color: "#ba1628", fontWeight: "bold" }}>
+                                            <a >{wineData?.AgeduCognac}</a>
+                                        </div>
+                                    </div>
+
 
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
