@@ -11,7 +11,7 @@ const HomeBody = () => {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        fontSize: "60px"
+        fontSize: "40px"
     };
     const rangStyle = {
         track: {
