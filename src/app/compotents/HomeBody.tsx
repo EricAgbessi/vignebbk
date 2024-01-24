@@ -33,27 +33,34 @@ const HomeBody = () => {
 
     return (
         <div className="w-[100%]">
+
             <div style={{ marginTop: "100px" }} className="bg-[url('../../public/photo1.webp')] w-[100%] align-center flex flex-row justify-center align-middle bg-position-center" >
-                <p style={{ ...contentStyle, backgroundColor: 'rgba(0, 0, 0, 0.3)', fontWeight: "bold" }} className="lg:w-[50%] md:w-[100%] sm:w-[100%] md:p-2 sm:p-2   align-center" >Découvrez les vins et champagne et cognac  parfait</p>
-            </div>
-            <Row className='lg:mr-[10%] lg:ml-[10%] className="w-[100%] "'>
-                <div className="w-[100%] max-md:h-[400px]  flex flex-row max-md:flex-col justify-center align-middle">
-                    <div className="flex flex-row  mr-4 overflow-x-auto w-full">
-                        <a href={`${FrontendUrl}/pages/vin?classification=Grand%20Cru`}> <Button type="link" block
-                            className={`m-2 rounded-full`} >Grands crus</Button></a>
 
-                        <a href={`${FrontendUrl}/pages/vin?classification=Petite%20crue`}> <Button type="link" block
-                            className={`m-2 rounded-full `} >Petits crus</Button></a>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }} >
+                    <p style={{ ...contentStyle, backgroundColor: 'rgba(0, 0, 0, 0.3)', fontWeight: "bold" }} className="lg:w-[50%] md:w-[100%] sm:w-[100%] md:p-2 sm:p-2   align-center" >
+                        Découvrez les vins et champagne et cognac  parfait
+                    </p>
+                    <Row className='lg:mr-[10%] lg:ml-[10%] className="w-[100%] "'>
+                        <div className="w-[100%] max-md:h-[400px]  flex flex-row max-md:flex-col justify-center align-middle">
+                            <div className="flex flex-row  mr-4 w-full">
+                                <a href={`${FrontendUrl}/pages/vin?classification=Grand%20Cru`}> <Button ghost
+                                    className={`m-2 rounded-full`} >Grands crus</Button></a>
 
-                        <a href={`${FrontendUrl}/pages/cognac`}> <Button type="link" block
-                            className={`m-2 rounded-full bg-red-700 text-white`} >Cognac</Button> </a>
+                                <a href={`${FrontendUrl}/pages/vin?classification=Petite%20crue`}> <Button ghost
+                                    className={`m-2 rounded-full `} >Petits crus</Button></a>
 
-                        <a href={`${FrontendUrl}/pages/champagne`}> <Button type="link" block
-                            className={`m-2 rounded-full`} >Champagnes</Button> </a>
-                    </div>
+                                <a href={`${FrontendUrl}/pages/cognac`}> <Button ghost
+                                    className={`m-2 rounded-full`} >Cognac</Button> </a>
+
+                                <a href={`${FrontendUrl}/pages/champagne`}> <Button ghost
+                                    className={`m-2 rounded-full`} >Champagnes</Button> </a>
+                            </div>
+                        </div>
+                    </Row>
                 </div>
-            </Row>
 
+
+            </div>
 
         </div>
     )
