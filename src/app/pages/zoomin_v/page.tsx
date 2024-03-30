@@ -241,7 +241,7 @@ export default function Vin() {
                                     <div className="flex justify-between border-b border-gray-300 py-2">
                                         <div className='flex flex-row m-2'>
                                             <PhoneOutlined style={{ fontSize: "22px" }} />
-                                            <span className="font-bold">Contact</span>
+                                            <span className="font-bold">Téléphone</span>
                                         </div>
                                         <div style={{ color: "#ba1628", fontWeight: "bold" }}>
                                             <a>+33 7 66 19 53 41 </a>

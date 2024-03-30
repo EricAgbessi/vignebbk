@@ -61,15 +61,16 @@ export default function Vin() {
 
                 <a href={`${FrontendUrl}/pages/vigne`}> <Button type="link" block
                     className={`m-2 rounded-full bg-red-700 text-white`} >Champagnes</Button> </a>
-
-
             </div>
-            <div className="flex flex-row mt-4 ">
-                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
+
+
+            <div className="flex flex-row mt-4 " >
+                <div className="flex flex-row flex-wrap" >
                     {wineData?.map((wine: any, index) => (
-                        <div key={index} className="max-w-md  mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-2 h-[800px] m-0">
-                            <WineCard_CH key={index} wine={wine} />
-                        </div>
+                        
+                        <a href={`${Pages.zoomin_ch}?id=${wine?.id}`} key={index} style={{boxShadow:"0px 1px 10px 0px rgba(0,0,0,0.75)",color:"black"}} className=" bg-white  flex-grow rounded-xl overflow-hidden lg:w-[30%]  h-[300px]  m-3 p-0 flex flex-row justify-center align-middle"  >
+                                <WineCard_CH key={index} wine={wine} />
+                        </a>
                     ))}
                 </div>
             </div>

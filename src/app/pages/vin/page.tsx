@@ -121,7 +121,7 @@ export default function Vin() {
             </div>
 
 
-            <div className="flex flex-row w-full mr-4 overflow-x-auto w-full">
+            <div className="flex flex-row mr-4 overflow-x-auto w-full">
                 <a href={`${FrontendUrl}/pages/vin?classification=Grand%20Cru`}> <Button type="link" onClick={navigate} block
                     className={`m-2 rounded-full ${filtre === 'Grands crus' ? 'bg-red-700 text-white' : ''}`} >Grands crus</Button></a>
 
@@ -141,12 +141,12 @@ export default function Vin() {
 
             <Row className=" bg-red-700 w-full text-white text-center p-2 rounded-md" justify="center" ><p>{filtre}</p></Row>
 
-            <div className="flex flex-row mt-4 ">
-                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" >
+            <div className="flex flex-row mt-4 " >
+                <div className="flex flex-row flex-wrap" >
                     {wineData?.map((wine: any, index) => (
-                        <div key={index} className="max-w-md h-auto mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-2 h-[500px] m-0">
-                            <WineCard key={index} wine={wine} />
-                        </div>
+                        <a href={`${Pages.zoomin}?id=${wine?.id_important}`} key={index} style={{boxShadow:"0px 1px 10px 0px rgba(0,0,0,0.75)",color:"black"}} className=" bg-white  flex-grow rounded-xl overflow-hidden lg:w-[30%]  h-[300px]  m-3 p-0 flex flex-row justify-center align-middle"  >
+                                <WineCard key={index} wine={wine} />
+                        </a>
                     ))}
                 </div>
             </div>

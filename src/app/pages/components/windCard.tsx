@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import { Card, Typography, Image, Rate } from 'antd';
+import { Card, Typography, Image, Rate, Row } from 'antd';
 import { IoIosWater, IoIosColorPalette } from 'react-icons/io';
 import { CiSearch, CiLocationOn } from 'react-icons/ci'
 import { FaWhatsapp } from 'react-icons/fa6'
@@ -12,6 +12,7 @@ import {
     PhoneOutlined
 } from '@ant-design/icons';
 import { Carousel } from 'antd';
+import { url } from 'inspector';
 
 
 
@@ -36,8 +37,9 @@ const WineCard = (props: any) => {
     const goToZoomin = () => {
         router?.push(Pages.zoomin)
     }
-    return (
-        <div className="max-w-sm bg-white rounded-lg ">
+    {
+        /**
+         * <div className="max-w-sm bg-white rounded-lg ">
             <a href={`${Pages.zoomin}?id=${props?.wine?.id_important}`}>
                 <img className="rounded-t-lg" src={props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`} alt="" />
             </a>
@@ -85,6 +87,61 @@ const WineCard = (props: any) => {
                 </div>
             </div>
         </div>
+         * 
+         */
+       } 
+
+       let images_ = props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`
+
+    return (
+            <div className=' min-w-sm w-sm max-w-[100%] border-1  h-[100%] flex flex-row  w-full p-0 m-0 '    >
+                <div className="w-[50%] m-2">
+                    <img className="rounded-t-lg max-h-[90%] max-w-[100%]" src={props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`} alt="" />
+                </div>
+
+
+                <div className="flex flex-col justify-center" >
+                <a href={`${Pages.zoomin}?id=${props?.wine?.id_important}`}>
+                    <h5 className="mb-2 text-md  sm:text-md md:text-md lg:text-xl  font-bold tracking-tight ">{props?.wine?.elements}</h5>
+                </a>
+                <div className="flex flex-row">
+                    <div>
+                        <div className='m-2'><Rate style={{ color: "#ba1628" }} disabled allowHalf defaultValue={parseFloat(props?.wine?.cote)} /></div>
+                        <div className='flex flex-row m-2'>
+                            <CiLocationOn style={{ fontSize: "22px" }} />
+                            <span>{props?.wine?.Region_domaine}</span>
+                        </div>
+                        <div className='flex flex-row m-2'>
+                            <GiGrapes style={{ fontSize: "22px" }} />
+                            <span>{props?.wine?.cepages}</span>
+                        </div>
+
+                        <div className='flex flex-row m-2'>
+                            <IoIosWater style={{ fontSize: "22px" }} />
+                            <span>{props?.wine?.teneur_en_alcool}</span>
+                        </div>
+
+                        <div className='flex flex-row m-2'>
+                            <IoIosColorPalette style={{ fontSize: "22px" }} /> <span>{props?.wine?.Style_de_Vin}</span>
+                        </div>
+
+
+                        <div className='flex flex-row m-2'>
+                            <PhoneOutlined style={{ fontSize: "22px" }} /> 
+                            <span style={{ fontSize: "10px" }}> +33 7 66 19 53 41 </span>
+                        </div>
+
+
+
+
+                        <div className='flex flex-row m-2'>
+                            <FaWhatsapp style={{ fontSize: "22px" }} /> 
+                            <span style={{ fontSize: "10px" }}>+229 95 06 70 17 </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
 
     )
 };

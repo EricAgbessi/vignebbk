@@ -42,11 +42,14 @@ const WineCard_CH = (props: any) => {
     const goToZoomin = () => {
         router?.push(Pages.zoomin)
     }
+
+    let images_ = props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`
+
     return (
-        <div className="max-w-sm bg-white rounded-lg" >
-            <a href={`${Pages.zoomin_ch}?id=${props?.wine?.id}`}>
-                <img className="rounded-t-lg h-56" src={props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`} alt="" />
-            </a>
+        <div className=' min-w-sm w-sm max-w-[100%] border-1  h-[100%] flex flex-row  w-full p-0 m-0 '    >
+             <div className="w-auto m-2">
+                    <img className="rounded-t-lg max-h-[90%] max-w-[100%]" src={props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`} alt="" />
+                </div>
 
 
             <div className="p-5">
@@ -55,43 +58,43 @@ const WineCard_CH = (props: any) => {
                 </a>
                 <div className="flex flex-row">
                     <div>
-                        <div className='flex flex-col m-2'>
-                            <p className="" style={{ color: "#ba1628", fontWeight: "bold" }}>Taille</p>
+                        <div>
+                            <span style={{ color: "#ba1628", fontWeight: "bold" }}>Taille :</span>
                             <span>{props?.wine?.Taillebouteille}</span>
                         </div>
-                        <div className='flex flex-col m-2'>
-                            <p style={{ color: "#ba1628", fontWeight: "bold" }}>Catégorie</p>
+                        <div >
+                            <span style={{ color: "#ba1628", fontWeight: "bold" }}>Catégorie :</span>
                             <span>{props?.wine?.Catégorie}</span>
                         </div>
 
-                        <div className='flex flex-col m-2'>
-                            <p style={{ color: "#ba1628", fontWeight: "bold" }}>Marque</p>
+                        <div>
+                            <span style={{ color: "#ba1628", fontWeight: "bold" }}>Marque :</span>
                             <span>{props?.wine?.Marque}</span>
                         </div>
 
-                        <div className='flex flex-col m-2'>
-                            <p style={{ color: "#ba1628", fontWeight: "bold" }}>Teneur en alcool</p>
+                        <div >
+                            <span style={{ color: "#ba1628", fontWeight: "bold" }}>Teneur en alcool :</span>
                             <span>{props?.wine?.Teneurenalcool}</span>
                         </div>
 
-                        <div className='flex flex-col m-2'>
-                            <span className='mr-2 font-bold' style={{ color: "#ba1628", fontWeight: "bold" }}>Prix</span>
+                        <div >
+                            <span className='mr-2 font-bold' style={{ color: "#ba1628", fontWeight: "bold" }}>Prix : </span>
                             <span>{props?.wine?.PrixdeVente}</span>
                         </div>
 
 
 
-                        <div className='flex flex-row m-2'>
-                            <PhoneOutlined style={{ fontSize: "22px" }} />
-                            <span style={{ fontSize: "10px" }}> +33 7 66 19 53 41 </span>
+                        <div >
+                            <span  className='flex flex-row' style={{ color: "#ba1628", fontWeight: "bold" }}>Téléphone:</span> 
+                            <span> +33 7 66 19 53 41 </span>
                         </div>
 
 
 
 
-                        <div className='flex flex-row m-2'>
-                            <FaWhatsapp style={{ fontSize: "22px" }} />
-                            <span style={{ fontSize: "10px" }}>+229 95 06 70 17 </span>
+                        <div>
+                            <span className='flex flex-row' style={{ color: "#ba1628", fontWeight: "bold" }}>Whatsapp:</span>
+                            <span>+229 95 06 70 17 </span>
                         </div>
 
                     </div>
