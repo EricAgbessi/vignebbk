@@ -47,7 +47,7 @@ const WineCard_CH = (props: any) => {
 
     return (
         <div className=' min-w-sm w-sm max-w-[100%] border-1  h-[100%] flex flex-row  w-full p-0 m-0 '    >
-             <div className="w-auto m-2">
+             <div className="w-[30%] sm:w-[30%] sm:max-w-[20%] md:w-[30%] md:max-w-[30%] m-2">
                     <img className="rounded-t-lg max-h-[90%] max-w-[100%]" src={props?.wine?.url === null ? `${ApiUrl}/placeholder.png` : `${props?.wine?.url}`} alt="" />
                 </div>
 

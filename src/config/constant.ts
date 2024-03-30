@@ -8,5 +8,5 @@ export const Pages = {
     zoomin_ch: "/pages/zoomin_ch",
 
 }
-export const ApiUrl = "http://localhost/vin/"
+export const ApiUrl = "http://localhost/vignebbk_php/"
 export const FrontendUrl = "http://localhost:3000"
